@@ -1,0 +1,41 @@
+{
+  "name": "doctorappointments",
+  "version": "1.0.0",
+  "description": "doctorappointments builder",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yalukaiwo/doctorappointments.git"
+  },
+  "keywords": [
+    "forkio",
+    "front-end",
+    "project",
+    "git",
+    "npm",
+    "node"
+  ],
+  "author": "Luka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yalukaiwo/doctorappointments/issues"
+  },
+  "homepage": "https://github.com/yalukaiwo/doctorappointments#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-js-minify": "^0.0.3",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}
