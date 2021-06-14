@@ -98,6 +98,10 @@
                         <p class="card__description-value card__value">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                      </div>
                      <div class="card__element">
+                        <p class="card__date-text card__text">Date:</p>
+                        <p class="card__date-value card__value">01-01-0101</p>
+                     </div>
+                     <div class="card__element">
                         <p class="card__pressure-text card__text">Pressure:</p>
                         <p class="card__pressure-value card__value">123</p>
                      </div>
@@ -146,6 +150,10 @@
                         <p class="card__description-value card__value">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                      </div>
                      <div class="card__element">
+                        <p class="card__date-text card__text">Date:</p>
+                        <p class="card__date-value card__value">01-01-0101</p>
+                     </div>
+                     <div class="card__element">
                         <p class="card__problems-text card__text">Last visit:</p>
                         <p class="card__pressure-value card__value">01-01-0101</p>
                      </div>
@@ -180,6 +188,10 @@
                      <div class="card__element">
                         <p class="card__description-text card__text">Description:</p>
                         <p class="card__description-value card__value">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                     </div>
+                     <div class="card__element">
+                        <p class="card__date-text card__text">Date:</p>
+                        <p class="card__date-value card__value">01-01-0101</p>
                      </div>
                      <div class="card__element">
                         <p class="card__age-text card__text">Age:</p>
@@ -321,6 +333,81 @@
         </div>
     </div>
     </main>
+    <div class="page__modal-holder" id="modalRoot">
+        <div class="page__modal-window modal">
+            <div class="modal__header">
+                <h3 class="modal__title">Create new visit</h3>
+                <h4 class="modal__close">&times;</h4>
+            </div>
+            <div class="modal__content">
+                <form class="modal__form modal__form--cardiologist">
+                    <div class="modal__short-info">
+                        <div class="modal__input-holder">
+                            <p class="modal__input-text">Name:</p>
+                        <input type="text" required class="modal__input" id="modalNameInput">
+                        </div>
+                        <div class="modal__input-holder">
+                            <p class="modal__input-text">Doctor:</p>
+                        <select  class="modal__select" id="modalDoctorInput">
+                            <option value="cardiologist" selected>Cardiologist</option>
+                            <option value="dentist">Dentist</option>
+                            <option value="therapist">Therapist</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="modal__full-info">
+                        <div class="modal__input-holder">
+                            <p class="modal__input-text">Importancy:</p>
+                        <select  class="modal__select" id="modalImportancyInput">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                        </div>
+                        <div class="modal__input-holder">
+                            <p class="modal__input-text">Visit goal:</p>
+                            <input type="text" required class="modal__input" id="modalGoalInput">
+                        </div>
+                        <div class="modal__input-holder">
+                            <p class="modal__input-text">Description:</p>
+                            <input type="text" required class="modal__input" id="modalDescInput">
+                        </div>
+                        <div class="modal__input-holder">
+                            <p class="modal__input-text">Due date:</p>
+                            <input type="date" required class="modal__input" id="modalDateInput">
+                        </div>
+                        <div class="modal__input-holder modal__input-holder--cardiologist">
+                            <p class="modal__input-text">Pressure:</p>
+                            <input type="text" required class="modal__input" id="modalPressureInput">
+                        </div>
+                        <div class="modal__input-holder modal__input-holder--cardiologist">
+                            <p class="modal__input-text">Mass index:</p>
+                            <input type="text" required class="modal__input" id="modalMassInput">
+                        </div>
+                        <div class="modal__input-holder modal__input-holder--cardiologist">
+                            <p class="modal__input-text">Heart deseases:</p>
+                            <input type="text" required class="modal__input" id="modalHeartInput">
+                        </div>
+                        <div class="modal__input-holder modal__input-holder--cardiologist">
+                            <p class="modal__input-text">Age:</p>
+                            <input type="text" required class="modal__input" id="modalCardioAgeInput">
+                        </div>
+                        <div class="modal__input-holder modal__input-holder--dentist">
+                            <p class="modal__input-text">Last visit:</p>
+                            <input type="date" required class="modal__input" id="modalVisitInput">
+                        </div>
+                        <div class="modal__input-holder modal__input-holder--therapist">
+                            <p class="modal__input-text">Age:</p>
+                            <input type="text" required class="modal__input" id="modalTherapistAgeInput">
+                        </div>                    
+                    </div>
+                    <div class="modal__button-holder">
+                        <button class="modal__form-submit" id="modalFormSubmit">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./dist/js/script.min.js"></script>
 </body>
