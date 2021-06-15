@@ -7,6 +7,26 @@ class Visit {
     this.description = description;
     this.date = date;
   }
+}
+class Cardiologist extends Visit {
+  constructor(
+    name,
+    doctor,
+    importancy,
+    goal,
+    description,
+    date,
+    pressure,
+    massIndex,
+    heartDeseases,
+    age
+  ) {
+    super(name, doctor, importancy, goal, description, date);
+    this.pressure = pressure;
+    this.massIndex = massIndex;
+    this.heartDeseases = heartDeseases;
+    this.age = age;
+  }
   async post() {
     let response = await axios({
       url: "https://ajax.test-danit.com/api/v2/cards/",
@@ -17,51 +37,25 @@ class Visit {
         doctor: this.doctor,
         importancy: this.importancy,
         goal: this.goal,
+        date: this.date,
+        pressure: this.pressure,
+        massIndex: this.massIndex,
+        heartDeseases: this.heartDeseases,
+        age: this.age,
       },
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
       },
     });
+    this.render(response.data.id);
     console.log(response.data);
-    console.log(response.data.doctor);
-    if (response.data.doctor === "therapist") {
-      var therapistVisit = new Therapist(
-        response.data.name,
-        response.data.doctor,
-        response.data.importancy,
-        response.data.goal,
-        response.data.description,
-        response.data.date,
-        response.data.age
-      );
-      therapistVisit.render();
-    } else if (response.data.doctor === "dentist") {
-      var dentistVisit = new Visit(
-        response.data.name,
-        response.data.doctor,
-        response.data.importancy,
-        response.data.goal,
-        response.data.description,
-        response.data.date
-      );
-      dentistVisit.render();
-    } else if (response.data.doctor === "cardiologist") {
-      var cardiologistVisit = new Cardiologist(
-        response.data.name,
-        response.data.doctor,
-        response.data.importancy,
-        response.data.goal,
-        response.data.description,
-        response.data.date
-      );
-      cardiologistVisit.render();
-    }
+    console.log(response.data.id);
   }
-  render() {
+
+  render(id) {
     const root = document.getElementById("cardRoot");
-    const card = `<div class="cards__card card" id="visit2">
-            <!-- id="visit{номер карточки на сервере}" -->
+    const card = `<div class="cards__card card" id="visit${id}">
             <div class="card__info-wrapper">
               <div class="card__short-info">
                 <h3 class="card__name">${this.name}</h3>
@@ -73,18 +67,16 @@ class Visit {
                     src="./dist/img/trash.png"
                     alt="delete"
                     class="options__icon"
-                    id="delete2"
+                    id="delete${id}"
                   />
-                  <!-- id="delete{номер карточки на сервере}" -->
                 </div>
                 <div class="options__long">
                   <img
                     src="./dist/img/edit.png"
                     alt="edit"
                     class="options__icon"
-                    id="edit2"
+                    id="edit${id}"
                   />
-                  <!-- id="edit{номер карточки на сервере}" -->
                 </div>
               </div>
               <div class="card__full-info">
@@ -126,37 +118,10 @@ class Visit {
                 </div>
               </div>
             </div>
-            <p class="card__showmore" id="showmore2">Show more</p>
-            <!-- id="showmore{номер карточки на сервере}" -->
+            <p class="card__showmore" id="showmore${id}">Show more</p>
           </div>`;
     root.innerHTML += card;
   }
-
   edit() {}
   delete() {}
-}
-class Therapist extends Visit {
-  constructor(name, doctor, importancy, goal, description, date, age) {
-    super(name, doctor, importancy, goal, description, date);
-    this.age = age;
-  }
-}
-class Cardiologist extends Therapist {
-  constructor(
-    name,
-    doctor,
-    importancy,
-    goal,
-    description,
-    date,
-    pressure,
-    massIndex,
-    heartDeseases,
-    age
-  ) {
-    super(name, doctor, importancy, goal, description, date, age);
-    this.pressure = pressure;
-    this.massIndex = massIndex;
-    this.heartDeseases = heartDeseases;
-  }
 }
