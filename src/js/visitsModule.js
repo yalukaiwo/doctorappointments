@@ -7,6 +7,23 @@ class Visit {
     this.description = description;
     this.date = date;
   }
+  async delete(id) {
+    let response = await axios({
+      url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+      },
+    });
+    if (response.status === 200) {
+      this.remov(id);
+    }
+  }
+  remov(id) {
+    const cardDelete = document.getElementById(`visit${id}`);
+    cardDelete.remove();
+  }
 }
 class VisitDentist extends Visit {
   constructor(name, importancy, goal, description, date, lastVisit) {
@@ -86,23 +103,6 @@ class VisitDentist extends Visit {
     root.innerHTML += card;
   }
   edit() {}
-  // async delete(id){
-  //   let response = await axios({
-  //     url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
-  //     method: "delete",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
-  //     },
-  //   });
-  //   if(response.status===200){
-  //     this.remov(id);
-  //   }
-  // }
-  // remov(id) {
-  //   const cardDelete = document.getElementById(`visit${id}`);
-  //   cardDelete.remove();
-  // }
 }
 class VisitCardiologist extends Visit {
   constructor(
@@ -216,7 +216,6 @@ class VisitCardiologist extends Visit {
     root.innerHTML += card;
   }
   edit() {}
-  delete() {}
 }
 class VisitTherapist extends Visit {
   constructor(name, importancy, goal, description, date, age) {
@@ -293,5 +292,4 @@ class VisitTherapist extends Visit {
     root.innerHTML += card;
   }
   edit() {}
-  delete() {}
 }
