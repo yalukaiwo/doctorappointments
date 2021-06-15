@@ -70,6 +70,12 @@ class VisitDentist extends Visit {
                   </p>
                 </div>
                 <div class="card__element">
+                  <p class="card__description-text card__text">Due date:</p>
+                  <p class="card__description-value card__value">
+                    ${this.date}
+                  </p>
+                </div>
+                <div class="card__element">
                   <p class="card__problems-text card__text">Last visit:</p>
                   <p class="card__pressure-value card__value">${this.lastVisit}</p>
                 </div>
@@ -184,7 +190,7 @@ class VisitCardiologist extends Visit {
                   </p>
                 </div>
                 <div class="card__element">
-                  <p class="card__date-text card__text">Date:</p>
+                  <p class="card__date-text card__text">Due date:</p>
                   <p class="card__date-value card__value">${this.date}</p>
                 </div>
                 <div class="card__element">
@@ -268,6 +274,12 @@ class VisitTherapist extends Visit {
                   <p class="card__description-text card__text">Description:</p>
                   <p class="card__description-value card__value">
                    ${this.description}
+                  </p>
+                </div>
+                <div class="card__element">
+                  <p class="card__description-text card__text">Due date:</p>
+                  <p class="card__description-value card__value">
+                   ${this.date}
                   </p>
                 </div>
                 <div class="card__element">
