@@ -45,8 +45,9 @@ function filterCards(card) {
 }
 nameInput.addEventListener("input", () => {
   const cardsList = document.querySelectorAll(".cards__card");
+  let numCount = 0;
   cardsList.forEach((card) => {
-    const numCount = filterCards(card);
+    numCount += filterCards(card);
     if (numCount === cardsList.length && numCount !== 0) {
       const text1 = document.getElementById("nothingFoundCards");
       text1.style.display = "block";
@@ -56,14 +57,24 @@ nameInput.addEventListener("input", () => {
 
 statusInput.onchange = () => {
   const cardsList = document.querySelectorAll(".cards__card");
+  let numCount = 0;
   cardsList.forEach((card) => {
-    filterCards(card);
+    numCount += filterCards(card);
+    if (numCount === cardsList.length && numCount !== 0) {
+      const text1 = document.getElementById("nothingFoundCards");
+      text1.style.display = "block";
+    }
   });
 };
 
 importancyInput.onchange = () => {
   const cardsList = document.querySelectorAll(".cards__card");
+  let numCount = 0;
   cardsList.forEach((card) => {
-    filterCards(card);
+    numCount += filterCards(card);
+    if (numCount === cardsList.length && numCount !== 0) {
+      const text1 = document.getElementById("nothingFoundCards");
+      text1.style.display = "block";
+    }
   });
 };
