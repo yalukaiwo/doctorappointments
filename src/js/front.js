@@ -5,10 +5,11 @@ switchBtn.addEventListener("click", () => {
   menu.classList.toggle("main__filters--active");
 });
 
-const showmore = document.querySelectorAll(".card__showmore");
+const cards = document.getElementById("cardRoot");
 
-showmore.forEach((el) => {
-  el.onclick = () => {
+cards.addEventListener("click", (e) => {
+  if (e.target.id.includes("showmore")) {
+    el = e.target;
     const id = "visit" + el.id.split("showmore")[1];
     document.getElementById(id).classList.toggle("card--open");
     if (document.getElementById(id).classList.contains("card--open")) {
@@ -16,5 +17,5 @@ showmore.forEach((el) => {
     } else {
       el.textContent = "Show more";
     }
-  };
+  }
 });
