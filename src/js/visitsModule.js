@@ -9,8 +9,8 @@ class Visit {
   }
 }
 class VisitDentist extends Visit {
-  constructor(name, doctor, importancy, goal, description, date, lastVisit) {
-    super(name, doctor, importancy, goal, description, date);
+  constructor(name, importancy, goal, description, date, lastVisit) {
+    super(name, "Dentist", importancy, goal, description, date);
     this.lastVisit = lastVisit;
   }
   async post() {
@@ -35,6 +35,8 @@ class VisitDentist extends Visit {
   }
 
   render(id) {
+    const text = document.getElementById("noCardsAdded");
+    text.style.display = "none";
     const root = document.getElementById("cardRoot");
     const card = `<div class="cards__card card" id="visit${id}">
             <div class="card__info-wrapper">
@@ -99,7 +101,6 @@ class VisitDentist extends Visit {
 class VisitCardiologist extends Visit {
   constructor(
     name,
-    doctor,
     importancy,
     goal,
     description,
@@ -109,7 +110,7 @@ class VisitCardiologist extends Visit {
     heartDeseases,
     age
   ) {
-    super(name, doctor, importancy, goal, description, date);
+    super(name, "Cardiologist", importancy, goal, description, date);
     this.pressure = pressure;
     this.massIndex = massIndex;
     this.heartDeseases = heartDeseases;
@@ -212,8 +213,8 @@ class VisitCardiologist extends Visit {
   delete() {}
 }
 class VisitTherapist extends Visit {
-  constructor(name, doctor, importancy, goal, description, date, age) {
-    super(name, doctor, importancy, goal, description, date);
+  constructor(name, importancy, goal, description, date, age) {
+    super(name, "Therapist", importancy, goal, description, date);
     this.age = age;
   }
   async post() {

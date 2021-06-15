@@ -45,14 +45,14 @@
         <div class="main__filters-holder">
           <form class="main__filters filter" id="filtersForm">
             <div class="filter__input-holder">
-              <p class="filter__input-word">Description:</p>
+              <p class="filter__input-word">Name:</p>
               <input type="text" id="nameFilterInput" class="filter__input" />
             </div>
 
             <div class="filter__input-holder">
               <p class="filter__input-word">Status:</p>
               <select id="statusFilterSelect" class="filter__select">
-                <option value="none" selected class="filter__option">
+                <option value="" selected class="filter__option">
                   Not Provided
                 </option>
                 <option value="open" class="filter__option">Open</option>
@@ -63,7 +63,7 @@
             <div class="filter__input-holder">
               <p class="filter__input-word">Importance:</p>
               <select id="importanceFilterSelect" class="filter__select">
-                <option value="none" selected class="filter__option">
+                <option value="" selected class="filter__option">
                   Not Provided
                 </option>
                 <option value="high" class="filter__option">High</option>
@@ -75,191 +75,11 @@
         </div>
       </div>
       <div class="main__main">
-        <!-- CARDS -->
-
         <div class="main__cards-wrapper cards" id="cardRoot">
-          <!-- CARDIOLOGIST -->
-          <div class="cards__card card" id="visit2">
-            <!-- id="visit{номер карточки на сервере}" -->
-            <div class="card__info-wrapper">
-              <div class="card__short-info">
-                <h3 class="card__name">Ivanov Ivan Ivanovich</h3>
-                <h4 class="card__doctor">Cardiologist</h4>
-              </div>
-              <div class="card__options options">
-                <div class="options__short">
-                  <img
-                    src="./dist/img/trash.png"
-                    alt="delete"
-                    class="options__icon"
-                    id="delete2"
-                  />
-                  <!-- id="delete{номер карточки на сервере}" -->
-                </div>
-                <div class="options__long">
-                  <img
-                    src="./dist/img/edit.png"
-                    alt="edit"
-                    class="options__icon"
-                    id="edit2"
-                  />
-                  <!-- id="edit{номер карточки на сервере}" -->
-                </div>
-              </div>
-              <div class="card__full-info">
-                <div class="card__element">
-                  <p class="card__importancy-text card__text">Importancy:</p>
-                  <p class="card__importancy-value card__value">High</p>
-                </div>
-                <div class="card__element">
-                  <p class="card__goal-text card__text">Visit goal:</p>
-                  <p class="card__goal-value card__value">
-                    Lorem ipsum dolor sit amet.
-                  </p>
-                </div>
-                <div class="card__element">
-                  <p class="card__description-text card__text">Description:</p>
-                  <p class="card__description-value card__value">
-                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                  </p>
-                </div>
-                <div class="card__element">
-                  <p class="card__date-text card__text">Date:</p>
-                  <p class="card__date-value card__value">01-01-0101</p>
-                </div>
-                <div class="card__element">
-                  <p class="card__pressure-text card__text">Pressure:</p>
-                  <p class="card__pressure-value card__value">123</p>
-                </div>
-                <div class="card__element">
-                  <p class="card__mass-text card__text">Mass index:</p>
-                  <p class="card__mass-value card__value">20</p>
-                </div>
-                <div class="card__element">
-                  <p class="card__problems-text card__text">Heart diseases:</p>
-                  <p class="card__problems-value card__value">Lorem, ipsum.</p>
-                </div>
-                <div class="card__element">
-                  <p class="card__age-text card__text">Age:</p>
-                  <p class="card__age-value card__value">55</p>
-                </div>
-              </div>
-            </div>
-            <p class="card__showmore" id="showmore2">Show more</p>
-            <!-- id="showmore{номер карточки на сервере}" -->
-          </div>
-
-          <!-- DENTIST-->
-          <div class="cards__card card" id="visit3">
-            <!-- id="visit{номер карточки на сервере}" -->
-            <div class="card__info-wrapper">
-              <div class="card__short-info">
-                <h3 class="card__name">Ivanov Ivan Ivanovich</h3>
-                <h4 class="card__doctor">Dentist</h4>
-              </div>
-              <div class="card__options options">
-                <div class="options__short">
-                  <img
-                    src="./dist/img/trash.png"
-                    alt="delete"
-                    class="options__icon"
-                    id="delete3"
-                  />
-                  <!-- id="delete{номер карточки на сервере}" -->
-                </div>
-                <div class="options__long">
-                  <img
-                    src="./dist/img/edit.png"
-                    alt="edit"
-                    class="options__icon"
-                    id="edit3"
-                  />
-                  <!-- id="edit{номер карточки на сервере}" -->
-                </div>
-              </div>
-              <div class="card__full-info">
-                <div class="card__element">
-                  <p class="card__importancy-text card__text">Importancy:</p>
-                  <p class="card__importancy-value card__value">High</p>
-                </div>
-                <div class="card__element">
-                  <p class="card__goal-text card__text">Visit goal:</p>
-                  <p class="card__goal-value card__value">
-                    Lorem ipsum dolor sit amet.
-                  </p>
-                </div>
-                <div class="card__element">
-                  <p class="card__description-text card__text">Description:</p>
-                  <p class="card__description-value card__value">
-                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                  </p>
-                </div>
-                <div class="card__element">
-                  <p class="card__problems-text card__text">Last visit:</p>
-                  <p class="card__pressure-value card__value">01-01-0101</p>
-                </div>
-              </div>
-            </div>
-            <p class="card__showmore" id="showmore3">Show more</p>
-            <!-- id="showmore{номер карточки на сервере}" -->
-          </div>
-          <!-- THERAPIST -->
-          <div class="cards__card card" id="visit4">
-            <!-- id="visit{номер карточки на сервере}" -->
-            <div class="card__info-wrapper">
-              <div class="card__short-info">
-                <h3 class="card__name">Ivanov Ivan Ivanovich</h3>
-                <h4 class="card__doctor">Therapist</h4>
-              </div>
-              <div class="card__options options">
-                <div class="options__short">
-                  <img
-                    src="./dist/img/trash.png"
-                    alt="delete"
-                    class="options__icon"
-                    id="delete4"
-                  />
-                  <!-- id="delete{номер карточки на сервере}" -->
-                </div>
-                <div class="options__long">
-                  <img
-                    src="./dist/img/edit.png"
-                    alt="edit"
-                    class="options__icon"
-                    id="edit4"
-                  />
-                  <!-- id="edit{номер карточки на сервере}" -->
-                </div>
-              </div>
-              <div class="card__full-info">
-                <div class="card__element">
-                  <p class="card__importancy-text card__text">Importancy:</p>
-                  <p class="card__importancy-value card__value">High</p>
-                </div>
-                <div class="card__element">
-                  <p class="card__goal-text card__text">Visit goal:</p>
-                  <p class="card__goal-value card__value">
-                    Lorem ipsum dolor sit amet.
-                  </p>
-                </div>
-                <div class="card__element">
-                  <p class="card__description-text card__text">Description:</p>
-                  <p class="card__description-value card__value">
-                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                  </p>
-                </div>
-                <div class="card__element">
-                  <p class="card__age-text card__text">Age:</p>
-                  <p class="card__age-value card__value">55</p>
-                </div>
-              </div>
-            </div>
-            <p class="card__showmore" id="showmore4">Show more</p>
-            <!-- id="showmore{номер карточки на сервере}" -->
-          </div>
+          <h3 class="cards__nocards" id="noCardsAdded">No cards have been added yet</h3>
+          <h3 class="cards__nocards" id="nothingFoundCards" style="display: none;">No cards found</h3>
           <!-- EDIT FORM CARDIOLOGIST -->
-          <div class="cards__card card card--open card" id="visit5">
-            <!-- id="visit{номер карточки на сервере}" -->
+          <!-- <div class="cards__card card card--open card" id="visit5">
             <div class="card__info-wrapper">
               <form class="card__short-info">
                 <input
@@ -346,10 +166,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
+          
           <!-- EDIT FORM DENTIST -->
-          <div class="cards__card card card--open" id="visit6">
-            <!-- id="visit{номер карточки на сервере}" -->
+          <!-- <div class="cards__card card card--open" id="visit6">
             <div class="card__info-wrapper">
               <form class="card__short-info">
                 <input
@@ -409,10 +229,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
+          
           <!-- EDIT FORM THERAPIST -->
-          <div class="cards__card card card--open" id="visit7">
-            <!-- id="visit{номер карточки на сервере}" -->
+          <!-- <div class="cards__card card card--open" id="visit7">
             <div class="card__info-wrapper">
               <form class="card__short-info">
                 <input
@@ -472,7 +292,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </main>
