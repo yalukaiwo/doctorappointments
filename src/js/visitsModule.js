@@ -17,10 +17,10 @@ class Visit {
       },
     });
     if (response.status === 200) {
-      this.removeHTML(id);
+      this.remov(id);
     }
   }
-  removeHTML(id) {
+  remov(id) {
     const cardDelete = document.getElementById(`visit${id}`);
     cardDelete.remove();
   }
@@ -216,7 +216,6 @@ class VisitCardiologist extends Visit {
     root.innerHTML += card;
   }
   edit() {}
-  delete() {}
 }
 class VisitTherapist extends Visit {
   constructor(name, importancy, goal, description, date, age) {
