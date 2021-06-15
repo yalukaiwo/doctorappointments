@@ -18,4 +18,10 @@ cards.addEventListener("click", (e) => {
       el.textContent = "Show more";
     }
   }
+  if (e.target.id.includes("delete")) {
+    el = e.target;
+    const id = el.id.split("delete")[1];
+    const visit = new Visit("1", "1", "1", "1", "1", "1");
+    visit.delete(id);
+  }
 });
