@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const form = document.querySelector(".modal__form");
 const submit = document.getElementById("modalFormSubmit");
 
@@ -17,3 +18,7 @@ console.dir(form);
 const visit = new Cardiologist(123, 123, 412, 124, 12, 142, 124, 124, 124, 24);
 visit.post();
 // visit.render();
+=======
+const visit = new Cardiologist(123, 123, 412, 124, 12, 142, 124, 124, 124, 24);
+visit.post();
+>>>>>>> dev

@@ -8,63 +8,6 @@ class Visit {
     this.date = date;
   }
 }
-class Therapist extends Visit {
-  constructor(name, doctor, importancy, goal, description, date, age) {
-    super(name, doctor, importancy, goal, description, date);
-    this.age = age;
-  }
-  async post() {
-    let response = await axios({
-      url: "https://ajax.test-danit.com/api/v2/cards/",
-      method: "post",
-      data: {
-        name: this.name,
-        description: this.description,
-        doctor: this.doctor,
-        importancy: this.importancy,
-        goal: this.goal,
-      },
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
-      },
-    });
-    console.log(response.data);
-    console.log(response.data.doctor);
-    if (response.data.doctor === "therapist") {
-      var therapistVisit = new Therapist(
-        response.data.name,
-        response.data.doctor,
-        response.data.importancy,
-        response.data.goal,
-        response.data.description,
-        response.data.date,
-        response.data.age
-      );
-      therapistVisit.render();
-    } else if (response.data.doctor === "dentist") {
-      var dentistVisit = new Visit(
-        response.data.name,
-        response.data.doctor,
-        response.data.importancy,
-        response.data.goal,
-        response.data.description,
-        response.data.date
-      );
-      dentistVisit.render();
-    } else if (response.data.doctor === "cardiologist") {
-      var cardiologistVisit = new Cardiologist(
-        response.data.name,
-        response.data.doctor,
-        response.data.importancy,
-        response.data.goal,
-        response.data.description,
-        response.data.date
-      );
-      cardiologistVisit.render();
-    }
-  }
-}
 class Cardiologist extends Visit {
   constructor(
     name,
