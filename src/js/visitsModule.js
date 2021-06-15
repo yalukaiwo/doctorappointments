@@ -7,10 +7,37 @@ class Visit {
     this.description = description;
     this.date = date;
   }
+  async delete(id) {
+    let response = await axios({
+      url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+      },
+    });
+    if (response.status === 200) {
+      this.remov(id);
+    }
+  }
+  remov(id) {
+    const cardDelete = document.getElementById(`visit${id}`);
+    cardDelete.remove();
+  }
 }
-class VisitDentist extends Visit {
-  constructor(name, importancy, goal, description, date, lastVisit) {
-    super(name, "Dentist", importancy, goal, description, date);
+class Dentist extends Visit {
+  constructor(
+    name,
+    doctor,
+    importancy,
+    goal,
+    description,
+    date,
+    age,
+    lastVisit,
+  ) {
+    super(name, doctor, importancy, goal, description, date);
+    this.age = age;
     this.lastVisit = lastVisit;
   }
   async post() {
@@ -24,7 +51,8 @@ class VisitDentist extends Visit {
         importancy: this.importancy,
         goal: this.goal,
         date: this.date,
-        lastVisit: this.lastVisit,
+        age: this.age,
+        lastVisit:this.lastVisit,
       },
       headers: {
         "Content-Type": "application/json",
@@ -35,8 +63,6 @@ class VisitDentist extends Visit {
   }
 
   render(id) {
-    const text = document.getElementById("noCardsAdded");
-    text.style.display = "none";
     const root = document.getElementById("cardRoot");
     const card = `<div class="cards__card card" id="visit${id}">
             <div class="card__info-wrapper">
@@ -70,12 +96,6 @@ class VisitDentist extends Visit {
                   </p>
                 </div>
                 <div class="card__element">
-                  <p class="card__description-text card__text">Due date:</p>
-                  <p class="card__description-value card__value">
-                    ${this.date}
-                  </p>
-                </div>
-                <div class="card__element">
                   <p class="card__problems-text card__text">Last visit:</p>
                   <p class="card__pressure-value card__value">${this.lastVisit}</p>
                 </div>
@@ -86,27 +106,12 @@ class VisitDentist extends Visit {
     root.innerHTML += card;
   }
   edit() {}
-  // async delete(id){
-  //   let response = await axios({
-  //     url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
-  //     method: "delete",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
-  //     },
-  //   });
-  //   if(response.status===200){
-  //     this.remov(id);
-  //   }
-  // }
-  // remov(id) {
-  //   const cardDelete = document.getElementById(`visit${id}`);
-  //   cardDelete.remove();
-  // }
+
 }
-class VisitCardiologist extends Visit {
+class Cardiologist extends Visit {
   constructor(
     name,
+    doctor,
     importancy,
     goal,
     description,
@@ -116,7 +121,7 @@ class VisitCardiologist extends Visit {
     heartDeseases,
     age
   ) {
-    super(name, "Cardiologist", importancy, goal, description, date);
+    super(name, doctor, importancy, goal, description, date);
     this.pressure = pressure;
     this.massIndex = massIndex;
     this.heartDeseases = heartDeseases;
@@ -190,7 +195,7 @@ class VisitCardiologist extends Visit {
                   </p>
                 </div>
                 <div class="card__element">
-                  <p class="card__date-text card__text">Due date:</p>
+                  <p class="card__date-text card__text">Date:</p>
                   <p class="card__date-value card__value">${this.date}</p>
                 </div>
                 <div class="card__element">
@@ -216,11 +221,10 @@ class VisitCardiologist extends Visit {
     root.innerHTML += card;
   }
   edit() {}
-  delete() {}
 }
-class VisitTherapist extends Visit {
-  constructor(name, importancy, goal, description, date, age) {
-    super(name, "Therapist", importancy, goal, description, date);
+class Therapist extends Visit {
+  constructor(name, doctor, importancy, goal, description, date, age) {
+    super(name, doctor, importancy, goal, description, date);
     this.age = age;
   }
   async post() {
@@ -277,12 +281,6 @@ class VisitTherapist extends Visit {
                   </p>
                 </div>
                 <div class="card__element">
-                  <p class="card__description-text card__text">Due date:</p>
-                  <p class="card__description-value card__value">
-                   ${this.date}
-                  </p>
-                </div>
-                <div class="card__element">
                   <p class="card__age-text card__text">Age:</p>
                   <p class="card__age-value card__value">${this.age}</p>
                 </div>
@@ -293,5 +291,4 @@ class VisitTherapist extends Visit {
     root.innerHTML += card;
   }
   edit() {}
-  delete() {}
 }
