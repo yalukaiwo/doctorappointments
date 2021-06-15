@@ -8,7 +8,7 @@ class Visit {
     this.date = date;
   }
 }
-class Dentist extends Visit {
+class VisitDentist extends Visit {
   constructor(name, doctor, importancy, goal, description, date, lastVisit) {
     super(name, doctor, importancy, goal, description, date);
     this.lastVisit = lastVisit;
@@ -96,7 +96,7 @@ class Dentist extends Visit {
   //   cardDelete.remove();
   // }
 }
-class Cardiologist extends Visit {
+class VisitCardiologist extends Visit {
   constructor(
     name,
     doctor,
@@ -211,7 +211,7 @@ class Cardiologist extends Visit {
   edit() {}
   delete() {}
 }
-class Therapist extends Visit {
+class VisitTherapist extends Visit {
   constructor(name, doctor, importancy, goal, description, date, age) {
     super(name, doctor, importancy, goal, description, date);
     this.age = age;

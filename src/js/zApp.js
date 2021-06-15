@@ -1,4 +1,4 @@
-const visit = new Cardiologist(
+const cardiologist = new VisitCardiologist(
   123,
   "Cardio",
   412,
@@ -10,8 +10,17 @@ const visit = new Cardiologist(
   124,
   24
 );
-visit.post();
-const dent = new Dentist("aa", "Dentist", "da", "d", "d", "sad", "s");
-dent.post();
-const den2t = new Therapist("aa", "a", "da", "d", "d", "d", "sad", "s");
-den2t.post();
+cardiologist.post();
+const dentist = new VisitDentist("aa", "Dentist", "da", "d", "d", "sad", "s");
+dentist.post();
+const therapist = new VisitTherapist(
+  "aa",
+  "a",
+  "da",
+  "d",
+  "d",
+  "d",
+  "sad",
+  "s"
+);
+therapist.post();
