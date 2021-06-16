@@ -28,6 +28,10 @@ class Visit {
       document.getElementById("noCardsAdded").style.display = "block";
     }
   }
+  edit(id) {
+    const visit = document.getElementById(id);
+    console.dir(`${visit}`);
+  }
 }
 class VisitDentist extends Visit {
   constructor(name, importancy, goal, description, date, lastVisit) {
@@ -106,7 +110,29 @@ class VisitDentist extends Visit {
           </div>`;
     root.innerHTML += card;
   }
-  edit() {}
+  async patch(id) {
+    let response = await axios({
+      url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
+      method: "patch",
+      data: {
+        //данные из класса модалки на изменение
+        // name: this.name, 
+        // description: this.description,
+        // doctor: this.doctor,
+        // importancy: this.importancy,
+        // goal: this.goal,
+        // date: this.date,
+        // lastVisit: this.lastVisit,
+      },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+      },
+    });
+    if (response.status === 200) {
+      this.edit(id);
+    }
+  }
 }
 class VisitCardiologist extends Visit {
   constructor(
@@ -219,7 +245,7 @@ class VisitCardiologist extends Visit {
           </div>`;
     root.innerHTML += card;
   }
-  edit() {}
+  edit() { }
 }
 class VisitTherapist extends Visit {
   constructor(name, importancy, goal, description, date, age) {
@@ -295,5 +321,5 @@ class VisitTherapist extends Visit {
           </div>`;
     root.innerHTML += card;
   }
-  edit() {}
+  edit() { }
 }
