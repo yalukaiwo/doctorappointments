@@ -168,8 +168,7 @@
             </div>
           </div> -->
           
-          <!-- EDIT FORM DENTIST -->
-          <!-- <div class="cards__card card card--open" id="visit6">
+  <!-- <div class="cards__card card card--open" id="visit6">
             <div class="card__info-wrapper">
               <form class="card__short-info">
                 <input
@@ -229,7 +228,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>  -->
           
           <!-- EDIT FORM THERAPIST -->
           <!-- <div class="cards__card card card--open" id="visit7">
@@ -278,12 +277,21 @@
                   />
                 </div>
                 <div class="card__element">
+                  <p class="card__age-text card__text">Due date:</p>
+                  <input
+                    type="date"
+                    id="editTheraDueDateInput"
+                    class="card__edit-input"
+                    value="0101-01-01"
+                  />
+                </div>
+                <div class="card__element">
                   <p class="card__age-text card__text">Age:</p>
                   <input
                     type="text"
-                    id="editTheraAgeInput7"
+                    id="editTheraAgeInput"
                     class="card__edit-input"
-                    value="01-01-0101"
+                    value="14"
                   />
                 </div>
                 <div class="card__edit-buttons buttons">
@@ -292,9 +300,53 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
-      </div>
+      </div> -->
+      <!-- <div class="cards__card card card--open" id="visit19312">
+        <div class="card__info-wrapper">
+          <div class="card__short-info">
+            <h3 class="card__name">name</h3>
+            <h4 class="card__doctor">Dentist</h4>
+          </div>
+          <div class="card__options options">
+            <div class="options__short">
+              <img src="./dist/img/trash.png" alt="delete" class="options__icon" id="delete19312">
+            </div>
+            <div class="options__long">
+              <img src="./dist/img/edit.png" alt="edit" class="options__icon" id="edit19312">
+            </div>
+          </div>
+          <div class="card__full-info">
+            <div class="card__element">
+              <p class="card__importancy-text card__text">Importancy:</p>
+              <p class="card__importancy-value card__value">123</p>
+            </div>
+            <div class="card__element">
+              <p class="card__goal-text card__text">Visit goal:</p>
+              <p class="card__goal-value card__value">
+                1231
+              </p>
+            </div>
+            <div class="card__element">
+              <p class="card__description-text card__text">Description:</p>
+              <p class="card__description-value card__value">
+                123123
+              </p>
+            </div>
+            <div class="card__element">
+              <p class="card__duedate-text card__text">Due date:</p>
+              <p class="card__duedate-value card__value">
+                01-01-0101
+              </p>
+            </div>
+            <div class="card__element">
+              <p class="card__problems-text card__text">Last visit:</p>
+              <p class="card__lastvisit-value card__value">12331</p>
+            </div>
+          </div>
+        </div>
+        <p class="card__showmore" id="showmore19312">Show less</p></div> -->
     </main>
     <!-- <div class="page__modal-holder" id="modalRoot">
       <div class="page__modal-window modal">
@@ -431,7 +483,8 @@
         </div>
       </div>
     </div> -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./dist/js/script.min.js"></script>
   </body>
 </html>
