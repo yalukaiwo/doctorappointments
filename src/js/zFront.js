@@ -21,7 +21,22 @@ cards.addEventListener("click", (e) => {
   if (e.target.id.includes("delete")) {
     el = e.target;
     const id = el.id.split("delete")[1];
-    const visit = new Visit("1", "1", "1", "1", "1", "1");
+    const visit = new VisitDelete();
     visit.delete(id);
+  }
+  if (
+    e.target.id.includes("edit") &&
+    e.target.classList.contains("options__icon")
+  ) {
+    if (
+      e.target.closest(".card").children[0].children[0].children[1]
+        .textContent === "Therapist"
+    ) {
+      console.log(
+        e.target.closest(".card").children[0].children[0].children[1]
+      );
+      const edit = new EditTherapist(e.target.id.split("edit")[1]);
+      edit.render();
+    }
   }
 });

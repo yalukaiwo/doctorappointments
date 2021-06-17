@@ -7,6 +7,8 @@ class Visit {
     this.description = description;
     this.date = date;
   }
+}
+class VisitDelete {
   async delete(id) {
     let response = await axios({
       url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
@@ -27,10 +29,6 @@ class Visit {
     if (cards.length === 0) {
       document.getElementById("noCardsAdded").style.display = "block";
     }
-  }
-  edit(id) {
-    const visit = document.getElementById(id);
-    console.dir(`${visit}`);
   }
 }
 class VisitDentist extends Visit {
@@ -56,14 +54,18 @@ class VisitDentist extends Visit {
         Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
       },
     });
-    this.render(response.data.id);
+    const card = this.render(response.data.id);
+    const root = document.getElementById("cardRoot");
+    root.append(card);
   }
 
   render(id) {
     const text = document.getElementById("noCardsAdded");
     text.style.display = "none";
-    const root = document.getElementById("cardRoot");
-    const card = `<div class="cards__card card" id="visit${id}">
+    const card = document.createElement("div");
+    card.classList = "cards__card card";
+    card.id = `visit${id}`;
+    card.innerHTML = `
             <div class="card__info-wrapper">
               <div class="card__short-info">
                 <h3 class="card__name">${this.name}</h3>
@@ -80,7 +82,9 @@ class VisitDentist extends Visit {
               <div class="card__full-info">
                 <div class="card__element">
                   <p class="card__importancy-text card__text">Importancy:</p>
-                  <p class="card__importancy-value card__value">${this.importancy}</p>
+                  <p class="card__importancy-value card__value">${
+                    this.importancy
+                  }</p>
                 </div>
                 <div class="card__element">
                   <p class="card__goal-text card__text">Visit goal:</p>
@@ -96,33 +100,33 @@ class VisitDentist extends Visit {
                 </div>
                 <div class="card__element">
                   <p class="card__description-text card__text">Due date:</p>
-                  <p class="card__description-value card__value">
-                    ${this.date}
+                  <p class="card__duedate-value card__value">
+                    ${this.date.split("-").reverse().join("-")}
                   </p>
                 </div>
                 <div class="card__element">
                   <p class="card__problems-text card__text">Last visit:</p>
-                  <p class="card__pressure-value card__value">${this.lastVisit}</p>
+                  <p class="card__lastvisit-value card__value">${
+                    this.lastVisit
+                  }</p>
                 </div>
               </div>
             </div>
-            <p class="card__showmore" id="showmore${id}">Show more</p>
-          </div>`;
-    root.innerHTML += card;
+            <p class="card__showmore" id="showmore${id}">Show more</p>`;
+    return card;
   }
   async patch(id) {
     let response = await axios({
       url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
-      method: "patch",
+      method: "put",
       data: {
-        //данные из класса модалки на изменение
-        // name: this.name, 
-        // description: this.description,
-        // doctor: this.doctor,
-        // importancy: this.importancy,
-        // goal: this.goal,
-        // date: this.date,
-        // lastVisit: this.lastVisit,
+        name: this.name,
+        description: this.description,
+        doctor: this.doctor,
+        importancy: this.importancy,
+        goal: this.goal,
+        date: this.date,
+        lastVisit: this.lastVisit,
       },
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +134,11 @@ class VisitDentist extends Visit {
       },
     });
     if (response.status === 200) {
-      this.edit(id);
+      const root = document.getElementById(`visit${id}`);
+      const card = this.render(id);
+      console.log(this.render(id));
+      root.innerHTML = card.innerHTML;
+      console.log(root);
     }
   }
 }
@@ -173,12 +181,18 @@ class VisitCardiologist extends Visit {
         Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
       },
     });
-    this.render(response.data.id);
+    const root = document.getElementById("cardRoot");
+    const card = this.render(response.data.id);
+    root.append(card);
   }
 
   render(id) {
-    const root = document.getElementById("cardRoot");
-    const card = `<div class="cards__card card" id="visit${id}">
+    const text = document.getElementById("noCardsAdded");
+    text.style.display = "none";
+    const card = document.createElement("div");
+    card.classList = "cards__card card";
+    card.id = `visit${id}`;
+    card.innerHTML = `
             <div class="card__info-wrapper">
               <div class="card__short-info">
                 <h3 class="card__name">${this.name}</h3>
@@ -205,7 +219,9 @@ class VisitCardiologist extends Visit {
               <div class="card__full-info">
                 <div class="card__element">
                   <p class="card__importancy-text card__text">Importancy:</p>
-                  <p class="card__importancy-value card__value">${this.importancy}</p>
+                  <p class="card__importancy-value card__value">${
+                    this.importancy
+                  }</p>
                 </div>
                 <div class="card__element">
                   <p class="card__goal-text card__text">Visit goal:</p>
@@ -221,11 +237,16 @@ class VisitCardiologist extends Visit {
                 </div>
                 <div class="card__element">
                   <p class="card__date-text card__text">Due date:</p>
-                  <p class="card__date-value card__value">${this.date}</p>
+                  <p class="card__duedate-value card__value">${this.date
+                    .split("-")
+                    .reverse()
+                    .join("-")}</p>
                 </div>
                 <div class="card__element">
                   <p class="card__pressure-text card__text">Pressure:</p>
-                  <p class="card__pressure-value card__value">${this.pressure}</p>
+                  <p class="card__pressure-value card__value">${
+                    this.pressure
+                  }</p>
                 </div>
                 <div class="card__element">
                   <p class="card__mass-text card__text">Mass index:</p>
@@ -233,7 +254,9 @@ class VisitCardiologist extends Visit {
                 </div>
                 <div class="card__element">
                   <p class="card__problems-text card__text">Heart diseases:</p>
-                  <p class="card__problems-value card__value">${this.heartDeseases}</p>
+                  <p class="card__problems-value card__value">${
+                    this.heartDeseases
+                  }</p>
                 </div>
                 <div class="card__element">
                   <p class="card__age-text card__text">Age:</p>
@@ -242,10 +265,10 @@ class VisitCardiologist extends Visit {
               </div>
             </div>
             <p class="card__showmore" id="showmore${id}">Show more</p>
-          </div>`;
-    root.innerHTML += card;
+`;
+    return card;
   }
-  edit() { }
+  edit() {}
 }
 class VisitTherapist extends Visit {
   constructor(name, importancy, goal, description, date, age) {
@@ -270,11 +293,41 @@ class VisitTherapist extends Visit {
         Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
       },
     });
-    this.render(response.data.id);
+    const card = this.render(response.data.id);
+    const root = document.getElementById("cardRoot");
+    root.append(card);
+  }
+  async patch(id) {
+    let response = await axios({
+      url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
+      method: "put",
+      data: {
+        name: this.name,
+        description: this.description,
+        doctor: this.doctor,
+        importancy: this.importancy,
+        goal: this.goal,
+        date: this.date,
+        age: this.age,
+      },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+      },
+    });
+    if (response.status === 200) {
+      const root = document.getElementById(`visit${id}`);
+      const card = this.render(id);
+      root.innerHTML = card.innerHTML;
+    }
   }
   render(id) {
-    const root = document.getElementById("cardRoot");
-    const card = `<div class="cards__card card" id="visit${id}">
+    const text = document.getElementById("noCardsAdded");
+    text.style.display = "none";
+    const card = document.createElement("div");
+    card.classList = "cards__card card";
+    card.id = `visit${id}`;
+    card.innerHTML = `
             <div class="card__info-wrapper">
               <div class="card__short-info">
                 <h3 class="card__name">${this.name}</h3>
@@ -291,7 +344,10 @@ class VisitTherapist extends Visit {
               <div class="card__full-info">
                 <div class="card__element">
                   <p class="card__importancy-text card__text">Importancy:</p>
-                  <p class="card__importancy-value card__value">${this.importancy}</p>
+                  <p class="card__importancy-value card__value">${
+                    this.importancy.charAt(0).toUpperCase() +
+                    this.importancy.slice(1)
+                  }</p>
                 </div>
                 <div class="card__element">
                   <p class="card__goal-text card__text">Visit goal:</p>
@@ -307,8 +363,8 @@ class VisitTherapist extends Visit {
                 </div>
                 <div class="card__element">
                   <p class="card__description-text card__text">Due date:</p>
-                  <p class="card__description-value card__value">
-                   ${this.date}
+                  <p class="card__duedate-value card__value">
+                   ${this.date.split("-").reverse().join("-")}
                   </p>
                 </div>
                 <div class="card__element">
@@ -317,9 +373,7 @@ class VisitTherapist extends Visit {
                 </div>
               </div>
             </div>
-            <p class="card__showmore" id="showmore${id}">Show more</p>
-          </div>`;
-    root.innerHTML += card;
+            <p class="card__showmore" id="showmore${id}">Show more</p>`;
+    return card;
   }
-  edit() { }
 }
