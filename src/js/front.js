@@ -32,9 +32,6 @@ cards.addEventListener("click", (e) => {
       e.target.closest(".card").children[0].children[0].children[1]
         .textContent === "Therapist"
     ) {
-      console.log(
-        e.target.closest(".card").children[0].children[0].children[1]
-      );
       const edit = new EditTherapist(e.target.id.split("edit")[1]);
       edit.render();
     }
