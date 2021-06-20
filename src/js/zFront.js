@@ -37,3 +37,6 @@ cards.addEventListener("click", (e) => {
     }
   }
 });
+
+const modal = new Modal();
+modal.loginModal();
