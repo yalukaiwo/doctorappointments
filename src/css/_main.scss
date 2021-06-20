@@ -428,11 +428,13 @@
   background-color: rgba(0, 0, 0, 0);
   color: $orange;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .modal__button-holder {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .cards__nocards {
