@@ -36,30 +36,6 @@ class Modal {
     pass.append(passText, passInput);
     const buttonHolder = new Div("modal__button-holder").create();
     form.append(buttonHolder);
-    async function callback(e) {
-      try {
-        if (
-          document.getElementById("modalEmailInput").value !== "" &&
-          document.getElementById("modalPassInput").value !== ""
-        ) {
-          const response = await axios({
-            url: "https://ajax.test-danit.com/api/v2/cards/login",
-            method: "post",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            data: {
-              email: document.getElementById("modalEmailInput").value,
-              password: document.getElementById("modalPassInput").value,
-            },
-          });
-        }
-      } catch (e) {
-        document.querySelectorAll(".modal__input").forEach((item) => {
-          item.style.borderBottom = "1px solid red";
-        });
-      }
-    }
     const submit = new Button(
       "modal__form-submit",
       "Login",
@@ -73,7 +49,30 @@ class Modal {
     const modal = this.loginRender();
     document.body.append(modal);
     document.body.style.overflow = "hidden";
-
     // const
+  }
+  async post() {
+    try {
+      if (
+        document.getElementById("modalEmailInput").value !== "" &&
+        document.getElementById("modalPassInput").value !== ""
+      ) {
+        const response = await axios({
+          url: "https://ajax.test-danit.com/api/v2/cards/login",
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: {
+            email: document.getElementById("modalEmailInput").value,
+            password: document.getElementById("modalPassInput").value,
+          },
+        });
+      }
+    } catch (e) {
+      document.querySelectorAll(".modal__input").forEach((item) => {
+        item.style.borderBottom = "1px solid red";
+      });
+    }
   }
 }
