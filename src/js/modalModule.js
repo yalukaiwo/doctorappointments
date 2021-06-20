@@ -40,7 +40,7 @@ class Modal {
       "modal__form-submit",
       "Login",
       "modalFormSubmit",
-      callback
+      this.post
     ).create();
     buttonHolder.append(submit);
     return holder;
