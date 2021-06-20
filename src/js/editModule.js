@@ -32,7 +32,7 @@ class EditTherapist {
     date = date.join("-");
     const form = document.createElement("div");
     form.classList = "card__info-wrapper";
-    form.id = `editItem${data.id}`;
+    form.id = `editItem${this.id}`;
     form.innerHTML = `
       <form class="card__short-info">
         <input
