@@ -15,7 +15,7 @@ class VisitDelete {
       method: "delete",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+        Authorization: `Bearer ${TOKEN}`,
       },
     });
     if (response.status === 200) {
@@ -51,7 +51,7 @@ class VisitDentist extends Visit {
       },
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+        Authorization: `Bearer ${TOKEN}`,
       },
     });
     const card = this.render(response.data.id);
@@ -130,7 +130,7 @@ class VisitDentist extends Visit {
       },
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+        Authorization: `Bearer ${TOKEN}`,
       },
     });
     if (response.status === 200) {
@@ -178,7 +178,7 @@ class VisitCardiologist extends Visit {
       },
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+        Authorization: `Bearer ${TOKEN}`,
       },
     });
     const root = document.getElementById("cardRoot");
@@ -290,7 +290,7 @@ class VisitTherapist extends Visit {
       },
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+        Authorization: `Bearer ${TOKEN}`,
       },
     });
     const card = this.render(response.data.id);
@@ -312,7 +312,7 @@ class VisitTherapist extends Visit {
       },
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 04a749a6-0cb8-43ca-9511-6bc6d5fa9396`,
+        Authorization: `Bearer ${TOKEN}`,
       },
     });
     if (response.status === 200) {
@@ -375,5 +375,56 @@ class VisitTherapist extends Visit {
             </div>
             <p class="card__showmore" id="showmore${id}">Show more</p>`;
     return card;
+  }
+}
+class AllVisits {
+  async get() {
+    return await axios({
+      url: "https://ajax.test-danit.com/api/v2/cards",
+      method: "get",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+      },
+    });
+  }
+  async render() {
+    const data = await this.get();
+    const root = document.getElementById("cardRoot");
+    data.data.forEach((element) => {
+      if (element.doctor === "Therapist") {
+        const visit = new VisitTherapist(
+          element.name.toString(),
+          element.importancy.toString(),
+          element.goal.toString(),
+          element.description.toString(),
+          element.date.toString(),
+          element.age.toString()
+        );
+        root.append(visit.render(element.id));
+      } else if (element.doctor === "Dentist") {
+        const visit = new VisitDentist(
+          element.name.toString(),
+          element.importancy.toString(),
+          element.goal.toString(),
+          element.description.toString(),
+          element.date.toString(),
+          element.lastVisit.toString()
+        );
+        root.append(visit.render(element.id));
+      } else if (element.doctor === "Cardiologist") {
+        const visit = new VisitCariologist(
+          element.name.toString(),
+          element.importancy.toString(),
+          element.goal.toString(),
+          element.description.toString(),
+          element.date.toString(),
+          element.pressure.toString(),
+          element.massIndex.toString(),
+          element.heartDeseases.toString(),
+          element.age.toString()
+        );
+        root.append(visit.render(element.id));
+      }
+    });
   }
 }

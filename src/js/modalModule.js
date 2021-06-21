@@ -7,6 +7,9 @@ class Modal {
     const header = new Div("modal__header").create();
     const title = new H("h3", "modal__title", "Login").create();
     const close = new H("h4", "modal__close", "&times;").create();
+    close.onclick = () => {
+      this.closeModal();
+    };
     header.append(title, close);
     const content = new Div("modal__content").create();
     modalWindow.append(header, content);
@@ -36,7 +39,7 @@ class Modal {
     pass.append(passText, passInput);
     const buttonHolder = new Div("modal__button-holder").create();
     form.append(buttonHolder);
-    const submit = new Button(
+    const submit = new ButtonToken(
       "modal__form-submit",
       "Login",
       "modalFormSubmit",
@@ -49,30 +52,32 @@ class Modal {
     const modal = this.loginRender();
     document.body.append(modal);
     document.body.style.overflow = "hidden";
-    // const
   }
   async post() {
-    try {
-      if (
-        document.getElementById("modalEmailInput").value !== "" &&
-        document.getElementById("modalPassInput").value !== ""
-      ) {
-        const response = await axios({
-          url: "https://ajax.test-danit.com/api/v2/cards/login",
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          data: {
-            email: document.getElementById("modalEmailInput").value,
-            password: document.getElementById("modalPassInput").value,
-          },
+    if (
+      document.getElementById("modalEmailInput").value !== "" &&
+      document.getElementById("modalPassInput").value !== ""
+    ) {
+      return await axios({
+        url: "https://ajax.test-danit.com/api/v2/cards/login",
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: {
+          email: document.getElementById("modalEmailInput").value,
+          password: document.getElementById("modalPassInput").value,
+        },
+      }).catch(function (e) {
+        document.querySelectorAll(".modal__input").forEach((item) => {
+          item.style.borderBottom = "1px solid red";
         });
-      }
-    } catch (e) {
-      document.querySelectorAll(".modal__input").forEach((item) => {
-        item.style.borderBottom = "1px solid red";
       });
     }
+  }
+  closeModal() {
+    const modal = document.getElementById("modalRoot");
+    modal.remove();
+    document.body.style.overflow = "visible";
   }
 }
