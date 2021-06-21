@@ -34,6 +34,18 @@ cards.addEventListener("click", (e) => {
     ) {
       const edit = new EditTherapist(e.target.id.split("edit")[1]);
       edit.render();
+    } else if (
+      e.target.closest(".card").children[0].children[0].children[1]
+        .textContent === "Cardiologist"
+    ) {
+      const edit = new EditCardiologist(e.target.id.split("edit")[1]);
+      edit.render();
+    } else if (
+      e.target.closest(".card").children[0].children[0].children[1]
+        .textContent === "Dentist"
+    ) {
+      const edit = new EditDentist(e.target.id.split("edit")[1]);
+      edit.render();
     }
   }
 });
