@@ -1,327 +1,490 @@
 <!DOCTYPE html>
 <html lang="en" class="page">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dist/css/style.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/css/style.min.css" />
     <title>Doctorappointments</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- HEADER -->
 
     <header class="page__header header">
-        <div class="header__content-wrapper">
+      <div class="header__content-wrapper">
         <div class="header__logo-wrapper">
-            <img src="./dist/img/logo.png" alt="logotype" class="header__logo">
+          <img src="./dist/img/logo.png" alt="logotype" class="header__logo" />
         </div>
         <div class="header__buttons">
-            <button class="header__button header__button--active login" id="loginButton">Login</button>
-            <button class="header__button create" id="createButton">Create Visit</button>
+          <button
+            class="header__button header__button--active login"
+            id="loginButton"
+          >
+            Login
+          </button>
+          <button class="header__button create" id="createButton">
+            Create Visit
+          </button>
         </div>
-    </div>
+      </div>
     </header>
 
     <!-- MAIN -->
 
     <main class="page__main main">
-        <div class="main__header">
+      <div class="main__header">
+        <!-- MAIN HEADER -->
 
-            <!-- MAIN HEADER -->
-
-            <div class="main__titles-wrapper">
-                <h3 class="main__title">Your visits</h3>
-                <h4 class="main__filter-switch" id="filterSwitch">Filter</h4>
-            </div>
-
-            <!-- FILTERS MENU -->
-
-            <div class="main__filters-holder">
-                <form class="main__filters filter" id="filtersForm">
-                    <div class="filter__input-holder">
-                        <p class="filter__input-word">Description: </p>
-                        <input type="text" id="nameFilterInput" class="filter__input">
-                    </div>
-
-                    <div class="filter__input-holder">
-                        <p class="filter__input-word">Status: </p>
-                    <select  id="statusFilterSelect" class="filter__select">
-                        <option value="none" selected class="filter__option">Not Provided</option>
-                        <option value="open" class="filter__option">Open</option>
-                        <option value="done" class="filter__option">Done</option>
-                    </select>
-                    </div>
-
-                    <div class="filter__input-holder">
-                        <p class="filter__input-word">Importance: </p>
-                    <select  id="importanceFilterSelect" class="filter__select">
-                        <option value="none" selected class="filter__option">Not Provided</option>
-                        <option value="high" class="filter__option">High</option>
-                        <option value="medium" class="filter__option">Medium</option>
-                        <option value="low" class="filter__option">Low</option>
-                    </select>
-                    </div>
-                </form>
-            </div>
-    </div>
-    <div class="maim__main">
-        <!-- CARDS -->
-
-        <div class="main__cards-wrapper cards" id="cardRoot">
-            <!-- CARDIOLOGIST -->
-            <div class="cards__card card" id="visit2"> <!-- id="visit{номер карточки на сервере}" -->
-                <div class="card__info-wrapper">
-                <div class="card__short-info">
-                    <h3 class="card__name">Ivanov Ivan Ivanovich</h3>
-                    <h4 class="card__doctor">Cardiologist</h4>
-                </div>
-                <div class="card__options options">
-                    <div class="options__short">
-                        <img src="./dist/img/trash.png" alt="delete" class="options__icon" id="delete2"> <!-- id="delete{номер карточки на сервере}" -->
-                    </div>
-                    <div class="options__long">
-                        <img src="./dist/img/edit.png" alt="edit" class="options__icon" id="edit2"> <!-- id="edit{номер карточки на сервере}" -->
-                    </div>
-                </div>
-                <div class="card__full-info">
-                    <div class="card__element">
-                       <p class="card__importancy-text card__text">Importancy:</p>
-                       <p class="card__importancy-value card__value">High</p>
-                    </div>
-                    <div class="card__element">
-                        <p class="card__goal-text card__text">Visit goal:</p>
-                        <p class="card__goal-value card__value">Lorem ipsum dolor sit amet.</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__description-text card__text">Description:</p>
-                        <p class="card__description-value card__value">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__pressure-text card__text">Pressure:</p>
-                        <p class="card__pressure-value card__value">123</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__mass-text card__text">Mass index:</p>
-                        <p class="card__mass-value card__value">20</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__problems-text card__text">Heart diseases:</p>
-                        <p class="card__problems-value card__value">Lorem, ipsum.</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__age-text card__text">Age:</p>
-                        <p class="card__age-value card__value">55</p>
-                     </div>
-                </div>
-            </div>
-            <p class="card__showmore" id="showmore2">Show more</p> <!-- id="showmore{номер карточки на сервере}" -->
-            </div>
-            <!-- DENTIST-->
-            <div class="cards__card card" id="visit3"> <!-- id="visit{номер карточки на сервере}" -->
-                <div class="card__info-wrapper">
-                <div class="card__short-info">
-                    <h3 class="card__name">Ivanov Ivan Ivanovich</h3>
-                    <h4 class="card__doctor">Dentist</h4>
-                </div>
-                <div class="card__options options">
-                    <div class="options__short">
-                        <img src="./dist/img/trash.png" alt="delete" class="options__icon" id="delete3"> <!-- id="delete{номер карточки на сервере}" -->
-                    </div>
-                    <div class="options__long">
-                        <img src="./dist/img/edit.png" alt="edit" class="options__icon" id="edit3"> <!-- id="edit{номер карточки на сервере}" -->
-                    </div>
-                </div>
-                <div class="card__full-info">
-                    <div class="card__element">
-                       <p class="card__importancy-text card__text">Importancy:</p>
-                       <p class="card__importancy-value card__value">High</p>
-                    </div>
-                    <div class="card__element">
-                        <p class="card__goal-text card__text">Visit goal:</p>
-                        <p class="card__goal-value card__value">Lorem ipsum dolor sit amet.</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__description-text card__text">Description:</p>
-                        <p class="card__description-value card__value">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__problems-text card__text">Last visit:</p>
-                        <p class="card__pressure-value card__value">01-01-0101</p>
-                     </div>
-                </div>
-            </div>
-            <p class="card__showmore" id="showmore3">Show more</p> <!-- id="showmore{номер карточки на сервере}" -->
-            </div>
-            <!-- THERAPIST -->
-            <div class="cards__card card" id="visit4"> <!-- id="visit{номер карточки на сервере}" -->
-                <div class="card__info-wrapper">
-                <div class="card__short-info">
-                    <h3 class="card__name">Ivanov Ivan Ivanovich</h3>
-                    <h4 class="card__doctor">Therapist</h4>
-                </div>
-                <div class="card__options options">
-                    <div class="options__short">
-                        <img src="./dist/img/trash.png" alt="delete" class="options__icon" id="delete4"> <!-- id="delete{номер карточки на сервере}" -->
-                    </div>
-                    <div class="options__long">
-                        <img src="./dist/img/edit.png" alt="edit" class="options__icon" id="edit4"> <!-- id="edit{номер карточки на сервере}" -->
-                    </div>
-                </div>
-                <div class="card__full-info">
-                    <div class="card__element">
-                       <p class="card__importancy-text card__text">Importancy:</p>
-                       <p class="card__importancy-value card__value">High</p>
-                    </div>
-                    <div class="card__element">
-                        <p class="card__goal-text card__text">Visit goal:</p>
-                        <p class="card__goal-value card__value">Lorem ipsum dolor sit amet.</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__description-text card__text">Description:</p>
-                        <p class="card__description-value card__value">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                     </div>
-                     <div class="card__element">
-                        <p class="card__age-text card__text">Age:</p>
-                        <p class="card__age-value card__value">55</p>
-                     </div>
-                </div>
-            </div>
-            <p class="card__showmore" id="showmore4">Show more</p> <!-- id="showmore{номер карточки на сервере}" -->
-            </div>
-            <!-- EDIT FORM CARDIOLOGIST -->
-            <div class="cards__card card card--open card" id="visit5"> <!-- id="visit{номер карточки на сервере}" -->
-                <div class="card__info-wrapper">
-                <form class="card__short-info">
-                    <input type="text" id="editNameInput5" class="card__name-input " value="Ivanov Ivan Ivanovich">
-                    <select  id="editDoctorSelect5" class="card__doctor-input">
-                        <option value="cardiologist" selected>Cardiologist</option>
-                        <option value="dentist">Dentist</option>
-                        <option value="therapist">Therapist</option>
-                    </select>
-                </form>
-                <div class="card__full-info">
-                    <div class="card__element">
-                       <p class="card__importancy-text card__text">Importancy:</p>
-                       <select  id="editImportancySelect5" class="card__edit-importancy">
-                        <option value="high" selected>High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
-                    </div>
-                    <div class="card__element">
-                        <p class="card__goal-text card__text">Visit goal:</p>
-                        <input type="text" id="editGoalInput5" class="card__edit-input" value="Lorem ipsum dolor sit amet.">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__description-text card__text">Description:</p>
-                        <input type="text" id="editDescriptionInput5" class="card__edit-input" value="Lorem ipsum dolor sit amet consectetur adipisicing.">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__pressure-text card__text">Pressure:</p>
-                        <input type="text" id="editPressureInput5" class="card__edit-input" value="123">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__mass-text card__text">Mass index:</p>
-                        <input type="text" id="editMassInput5" class="card__edit-input" value="20">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__problems-text card__text">Heart diseases:</p>
-                        <input type="text" id="editHeartInput5" class="card__edit-input" value="Lorem ipsum.">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__age-text card__text">Age:</p>
-                        <input type="text" id="editCardioAgeInput5" class="card__edit-input" value="55">
-                     </div>
-                     <div class="card__edit-buttons buttons">
-                    <button class="buttons-cancel card__button">Cancel</button>
-                    <button class="buttons-submit card__button">Submit</button>
-                    </div> 
-                </div>
-            </div>
-            </div>
-            <!-- EDIT FORM DENTIST -->
-            <div class="cards__card card card--open" id="visit6"> <!-- id="visit{номер карточки на сервере}" -->
-                <div class="card__info-wrapper">
-                <form class="card__short-info">
-                    <input type="text" id="editNameInput6" class="card__name-input " value="Ivanov Ivan Ivanovich">
-                    <select  id="editDoctorSelect6" class="card__doctor-input">
-                        <option value="cardiologist" selected>Cardiologist</option>
-                        <option value="dentist">Dentist</option>
-                        <option value="therapist">Therapist</option>
-                    </select>
-                </form>
-                <div class="card__full-info">
-                    <div class="card__element">
-                       <p class="card__importancy-text card__text">Importancy:</p>
-                       <select  id="editImportancySelect6" class="card__edit-importancy">
-                        <option value="high" selected>High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
-                    </div>
-                    <div class="card__element">
-                        <p class="card__goal-text card__text">Visit goal:</p>
-                        <input type="text" id="editGoalInput6" class="card__edit-input" value="Lorem ipsum dolor sit amet.">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__description-text card__text">Description:</p>
-                        <input type="text" id="editDescriptionInput6" class="card__edit-input" value="Lorem ipsum dolor sit amet consectetur adipisicing.">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__age-text card__text">Last visit:</p>
-                        <input type="text" id="editVisitInput6" class="card__edit-input" value="01-01-0101">
-                     </div>
-                     <div class="card__edit-buttons buttons">
-                    <button class="buttons-cancel card__button">Cancel</button>
-                    <button class="buttons-submit card__button">Submit</button>
-                    </div> 
-                </div>
-            </div>
-            </div>
-            <!-- EDIT FORM THERAPIST -->
-            <div class="cards__card card card--open" id="visit7"> <!-- id="visit{номер карточки на сервере}" -->
-                <div class="card__info-wrapper">
-                <form class="card__short-info">
-                    <input type="text" id="editNameInput7" class="card__name-input " value="Ivanov Ivan Ivanovich">
-                    <select  id="editDoctorSelect7" class="card__doctor-input">
-                        <option value="cardiologist" selected>Cardiologist</option>
-                        <option value="dentist">Dentist</option>
-                        <option value="therapist">Therapist</option>
-                    </select>
-                </form>
-                <div class="card__full-info">
-                    <div class="card__element">
-                       <p class="card__importancy-text card__text">Importancy:</p>
-                       <select  id="editImportancySelect7" class="card__edit-importancy">
-                        <option value="high" selected>High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
-                    </div>
-                    <div class="card__element">
-                        <p class="card__goal-text card__text">Visit goal:</p>
-                        <input type="text" id="editGoalInput7" class="card__edit-input" value="Lorem ipsum dolor sit amet.">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__description-text card__text">Description:</p>
-                        <input type="text" id="editDescriptionInput7" class="card__edit-input" value="Lorem ipsum dolor sit amet consectetur adipisicing.">
-                     </div>
-                     <div class="card__element">
-                        <p class="card__age-text card__text">Age:</p>
-                        <input type="text" id="editTheraAgeInput7" class="card__edit-input" value="01-01-0101">
-                     </div>
-                     <div class="card__edit-buttons buttons">
-                    <button class="buttons-cancel card__button">Cancel</button>
-                    <button class="buttons-submit card__button">Submit</button>
-                    </div> 
-                </div>
-            </div>
-            </div>
+        <div class="main__titles-wrapper">
+          <h3 class="main__title">Your visits</h3>
+          <h4 class="main__filter-switch" id="filterSwitch">Filter</h4>
         </div>
-    </div>
+
+        <!-- FILTERS MENU -->
+
+        <div class="main__filters-holder">
+          <form class="main__filters filter" id="filtersForm">
+            <div class="filter__input-holder">
+              <p class="filter__input-word">Name:</p>
+              <input type="text" id="nameFilterInput" class="filter__input" />
+            </div>
+
+            <div class="filter__input-holder">
+              <p class="filter__input-word">Status:</p>
+              <select id="statusFilterSelect" class="filter__select">
+                <option value="" selected class="filter__option">
+                  Not Provided
+                </option>
+                <option value="open" class="filter__option">Open</option>
+                <option value="done" class="filter__option">Done</option>
+              </select>
+            </div>
+
+            <div class="filter__input-holder">
+              <p class="filter__input-word">Importance:</p>
+              <select id="importanceFilterSelect" class="filter__select">
+                <option value="" selected class="filter__option">
+                  Not Provided
+                </option>
+                <option value="high" class="filter__option">High</option>
+                <option value="medium" class="filter__option">Medium</option>
+                <option value="low" class="filter__option">Low</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="main__main">
+        <div class="main__cards-wrapper cards" id="cardRoot">
+          <h3 class="cards__nocards" id="noCardsAdded">No cards have been added yet</h3>
+          <h3 class="cards__nocards" id="nothingFoundCards" style="display: none;">No cards found</h3>
+          <!-- EDIT FORM CARDIOLOGIST -->
+          <!-- <div class="cards__card card card--open card" id="visit5">
+            <div class="card__info-wrapper">
+              <form class="card__short-info">
+                <input
+                  type="text"
+                  id="editNameInput5"
+                  class="card__name-input"
+                  value="Ivanov Ivan Ivanovich"
+                />
+                <select id="editDoctorSelect5" class="card__doctor-input">
+                  <option value="cardiologist" selected>Cardiologist</option>
+                  <option value="dentist">Dentist</option>
+                  <option value="therapist">Therapist</option>
+                </select>
+              </form>
+              <div class="card__full-info">
+                <div class="card__element">
+                  <p class="card__importancy-text card__text">Importancy:</p>
+                  <select
+                    id="editImportancySelect5"
+                    class="card__edit-importancy"
+                  >
+                    <option value="high" selected>High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                  </select>
+                </div>
+                <div class="card__element">
+                  <p class="card__goal-text card__text">Visit goal:</p>
+                  <input
+                    type="text"
+                    id="editGoalInput5"
+                    class="card__edit-input"
+                    value="Lorem ipsum dolor sit amet."
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__description-text card__text">Description:</p>
+                  <input
+                    type="text"
+                    id="editDescriptionInput5"
+                    class="card__edit-input"
+                    value="Lorem ipsum dolor sit amet consectetur adipisicing."
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__pressure-text card__text">Pressure:</p>
+                  <input
+                    type="text"
+                    id="editPressureInput5"
+                    class="card__edit-input"
+                    value="123"
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__mass-text card__text">Mass index:</p>
+                  <input
+                    type="text"
+                    id="editMassInput5"
+                    class="card__edit-input"
+                    value="20"
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__problems-text card__text">Heart diseases:</p>
+                  <input
+                    type="text"
+                    id="editHeartInput5"
+                    class="card__edit-input"
+                    value="Lorem ipsum."
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__age-text card__text">Age:</p>
+                  <input
+                    type="text"
+                    id="editCardioAgeInput5"
+                    class="card__edit-input"
+                    value="55"
+                  />
+                </div>
+                <div class="card__edit-buttons buttons">
+                  <button class="buttons-cancel card__button">Cancel</button>
+                  <button class="buttons-submit card__button">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          
+  <!-- <div class="cards__card card card--open" id="visit6">
+            <div class="card__info-wrapper">
+              <form class="card__short-info">
+                <input
+                  type="text"
+                  id="editNameInput6"
+                  class="card__name-input"
+                  value="Ivanov Ivan Ivanovich"
+                />
+                <select id="editDoctorSelect6" class="card__doctor-input">
+                  <option value="cardiologist" selected>Cardiologist</option>
+                  <option value="dentist">Dentist</option>
+                  <option value="therapist">Therapist</option>
+                </select>
+              </form>
+              <div class="card__full-info">
+                <div class="card__element">
+                  <p class="card__importancy-text card__text">Importancy:</p>
+                  <select
+                    id="editImportancySelect6"
+                    class="card__edit-importancy"
+                  >
+                    <option value="high" selected>High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                  </select>
+                </div>
+                <div class="card__element">
+                  <p class="card__goal-text card__text">Visit goal:</p>
+                  <input
+                    type="text"
+                    id="editGoalInput6"
+                    class="card__edit-input"
+                    value="Lorem ipsum dolor sit amet."
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__description-text card__text">Description:</p>
+                  <input
+                    type="text"
+                    id="editDescriptionInput6"
+                    class="card__edit-input"
+                    value="Lorem ipsum dolor sit amet consectetur adipisicing."
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__age-text card__text">Last visit:</p>
+                  <input
+                    type="text"
+                    id="editVisitInput6"
+                    class="card__edit-input"
+                    value="01-01-0101"
+                  />
+                </div>
+                <div class="card__edit-buttons buttons">
+                  <button class="buttons-cancel card__button">Cancel</button>
+                  <button class="buttons-submit card__button">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>  -->
+          
+          <!-- EDIT FORM THERAPIST -->
+          <!-- <div class="cards__card card card--open" id="visit7">
+            <div class="card__info-wrapper">
+              <form class="card__short-info">
+                <input
+                  type="text"
+                  id="editNameInput7"
+                  class="card__name-input"
+                  value="Ivanov Ivan Ivanovich"
+                />
+                <select id="editDoctorSelect7" class="card__doctor-input">
+                  <option value="cardiologist" selected>Cardiologist</option>
+                  <option value="dentist">Dentist</option>
+                  <option value="therapist">Therapist</option>
+                </select>
+              </form>
+              <div class="card__full-info">
+                <div class="card__element">
+                  <p class="card__importancy-text card__text">Importancy:</p>
+                  <select
+                    id="editImportancySelect7"
+                    class="card__edit-importancy"
+                  >
+                    <option value="high" selected>High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                  </select>
+                </div>
+                <div class="card__element">
+                  <p class="card__goal-text card__text">Visit goal:</p>
+                  <input
+                    type="text"
+                    id="editGoalInput7"
+                    class="card__edit-input"
+                    value="Lorem ipsum dolor sit amet."
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__description-text card__text">Description:</p>
+                  <input
+                    type="text"
+                    id="editDescriptionInput7"
+                    class="card__edit-input"
+                    value="Lorem ipsum dolor sit amet consectetur adipisicing."
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__age-text card__text">Due date:</p>
+                  <input
+                    type="date"
+                    id="editTheraDueDateInput"
+                    class="card__edit-input"
+                    value="0101-01-01"
+                  />
+                </div>
+                <div class="card__element">
+                  <p class="card__age-text card__text">Age:</p>
+                  <input
+                    type="text"
+                    id="editTheraAgeInput"
+                    class="card__edit-input"
+                    value="14"
+                  />
+                </div>
+                <div class="card__edit-buttons buttons">
+                  <button class="buttons-cancel card__button">Cancel</button>
+                  <button class="buttons-submit card__button">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="cards__card card card--open" id="visit19312">
+        <div class="card__info-wrapper">
+          <div class="card__short-info">
+            <h3 class="card__name">name</h3>
+            <h4 class="card__doctor">Dentist</h4>
+          </div>
+          <div class="card__options options">
+            <div class="options__short">
+              <img src="./dist/img/trash.png" alt="delete" class="options__icon" id="delete19312">
+            </div>
+            <div class="options__long">
+              <img src="./dist/img/edit.png" alt="edit" class="options__icon" id="edit19312">
+            </div>
+          </div>
+          <div class="card__full-info">
+            <div class="card__element">
+              <p class="card__importancy-text card__text">Importancy:</p>
+              <p class="card__importancy-value card__value">123</p>
+            </div>
+            <div class="card__element">
+              <p class="card__goal-text card__text">Visit goal:</p>
+              <p class="card__goal-value card__value">
+                1231
+              </p>
+            </div>
+            <div class="card__element">
+              <p class="card__description-text card__text">Description:</p>
+              <p class="card__description-value card__value">
+                123123
+              </p>
+            </div>
+            <div class="card__element">
+              <p class="card__duedate-text card__text">Due date:</p>
+              <p class="card__duedate-value card__value">
+                01-01-0101
+              </p>
+            </div>
+            <div class="card__element">
+              <p class="card__problems-text card__text">Last visit:</p>
+              <p class="card__lastvisit-value card__value">12331</p>
+            </div>
+          </div>
+        </div>
+        <p class="card__showmore" id="showmore19312">Show less</p></div> -->
     </main>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <div class="page__modal-holder" id="modalRoot">
+      <div class="page__modal-window modal">
+        <div class="modal__header">
+          <h3 class="modal__title">Create new visit</h3>
+          <h4 class="modal__close">&times;</h4>
+        </div>
+        <div class="modal__content">
+          <form class="modal__form modal__form--cardiologist">
+            <div class="modal__short-info">
+              <div class="modal__input-holder">
+                <p class="modal__input-text">Name:</p>
+                <input
+                  type="text"
+                  required
+                  class="modal__input"
+                  id="modalNameInput"
+                />
+              </div>
+              <div class="modal__input-holder">
+                <p class="modal__input-text">Doctor:</p>
+                <select class="modal__select" id="modalDoctorInput">
+                  <option value="cardiologist" selected>Cardiologist</option>
+                  <option value="dentist">Dentist</option>
+                  <option value="therapist">Therapist</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal__full-info">
+              <div class="modal__input-holder">
+                <p class="modal__input-text">Importancy:</p>
+                <select class="modal__select" id="modalImportancyInput">
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+              <div class="modal__input-holder">
+                <p class="modal__input-text">Visit goal:</p>
+                <input
+                  type="text"
+                  required
+                  class="modal__input"
+                  id="modalGoalInput"
+                />
+              </div>
+              <div class="modal__input-holder">
+                <p class="modal__input-text">Description:</p>
+                <input
+                  type="text"
+                  required
+                  class="modal__input"
+                  id="modalDescInput"
+                />
+              </div>
+              <div class="modal__input-holder">
+                <p class="modal__input-text">Due date:</p>
+                <input
+                  type="date"
+                  required
+                  class="modal__input"
+                  id="modalDateInput"
+                />
+              </div>
+              <div
+                class="modal__input-holder modal__input-holder--cardiologist"
+              >
+                <p class="modal__input-text">Pressure:</p>
+                <input
+                  type="text"
+                  required
+                  class="modal__input"
+                  id="modalPressureInput"
+                />
+              </div>
+              <div
+                class="modal__input-holder modal__input-holder--cardiologist"
+              >
+                <p class="modal__input-text">Mass index:</p>
+                <input
+                  type="text"
+                  required
+                  class="modal__input"
+                  id="modalMassInput"
+                />
+              </div>
+              <div
+                class="modal__input-holder modal__input-holder--cardiologist"
+              >
+                <p class="modal__input-text">Heart deseases:</p>
+                <input
+                  type="text"
+                  required
+                  class="modal__input"
+                  id="modalHeartInput"
+                />
+              </div>
+              <div
+                class="modal__input-holder modal__input-holder--cardiologist"
+              >
+                <p class="modal__input-text">Age:</p>
+                <input
+                  type="text"
+                  required
+                  class="modal__input"
+                  id="modalCardioAgeInput"
+                />
+              </div>
+              <div class="modal__input-holder modal__input-holder--dentist">
+                <p class="modal__input-text">Last visit:</p>
+                <input
+                  type="date"
+                  required
+                  class="modal__input"
+                  id="modalVisitInput"
+                />
+              </div>
+              <div class="modal__input-holder modal__input-holder--therapist">
+                <p class="modal__input-text">Age:</p>
+                <input
+                  type="text"
+                  required
+                  class="modal__input"
+                  id="modalTherapistAgeInput"
+                />
+              </div>
+            </div>
+            <div class="modal__button-holder">
+              <button class="modal__form-submit" id="modalFormSubmit">
+                Create
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> -->
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./dist/js/script.min.js"></script>
-</body>
+  </body>
 </html>
