@@ -63,7 +63,6 @@ class Input {
     return input;
   }
 }
-
 class ButtonToken {
   constructor(classList, text, id, callback) {
     this.classList = classList;

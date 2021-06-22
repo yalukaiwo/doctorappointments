@@ -39,8 +39,14 @@ cards.addEventListener("click", (e) => {
 });
 
 const login = document.getElementById("loginButton");
+const create = document.getElementById("createButton");
 
 login.addEventListener("click", (e) => {
+  e.preventDefault();
+  const modal = new Modal();
+  modal.createModal();
+});
+create.addEventListener("click", (e) => {
   e.preventDefault();
   const modal = new Modal();
   modal.loginModal();

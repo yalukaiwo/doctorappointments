@@ -79,5 +79,7 @@ class Modal {
     const modal = document.getElementById("modalRoot");
     modal.remove();
     document.body.style.overflow = "visible";
+    login.style.display = "none";
+    create.style.display = "block";
   }
 }
