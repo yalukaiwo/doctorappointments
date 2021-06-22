@@ -85,6 +85,9 @@ class ButtonToken {
         modal.closeModal();
         const renderAll = new AllVisits();
         renderAll.render();
+        document.getElementById("loginButton").style.display = "none";
+        document.getElementById("createButton").style.display = "block";
+        localStorage.setItem("token", token.data);
       }
     };
     return button;
