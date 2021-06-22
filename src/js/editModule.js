@@ -7,7 +7,7 @@ class EditTherapist {
     return info;
   }
   getInputData() {
-    const info = new GetInputInfo().therapist(this.id);
+    const info = new GetInputInfo().therapist();
     return info;
   }
   render() {
@@ -146,7 +146,7 @@ class GetInfo {
 }
 
 class GetInputInfo {
-  therapist(id) {
+  therapist() {
     const name = document.getElementById(`editNameInput`).value;
     const importance = document.getElementById(`editImportancySelect`).value;
     const goal = document.getElementById(`editGoalInput`).value;

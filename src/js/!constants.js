@@ -1,1 +1,1 @@
-let TOKEN = "";
+let TOKEN = localStorage.getItem("token");

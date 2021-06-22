@@ -38,16 +38,19 @@ cards.addEventListener("click", (e) => {
   }
 });
 
-const login = document.getElementById("loginButton");
-const create = document.getElementById("createButton");
+if (TOKEN === null) {
+  const login = document.getElementById("loginButton");
 
-login.addEventListener("click", (e) => {
-  e.preventDefault();
-  const modal = new Modal();
-  modal.createModal();
-});
-create.addEventListener("click", (e) => {
-  e.preventDefault();
-  const modal = new Modal();
-  modal.loginModal();
-});
+  login.addEventListener("click", (e) => {
+    e.preventDefault();
+    const modal = new Modal();
+    modal.loginModal();
+  });
+} else {
+  const login = document.getElementById("loginButton");
+  login.style.display = "none";
+  const create = document.getElementById("createButton");
+  create.style.display = "block";
+  const renderAll = new AllVisits();
+  renderAll.render();
+}
