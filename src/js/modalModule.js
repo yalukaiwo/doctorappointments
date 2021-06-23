@@ -54,7 +54,7 @@ class Modal {
     document.body.style.overflow = "hidden";
   }
   createRender() {
-    const holders= new Div("page__modal-holder").create();
+    const holders = new Div("page__modal-holder").create();
     holders.id = "modalRoot";
     holders.innerHTML = `
     <div class="page__modal-window modal">
@@ -185,87 +185,116 @@ class Modal {
       </div>
     </div>`;
     document.body.append(holders);
-    
-  document.addEventListener('change', function(e){
-    if(e.target.classList.contains('modalDoctorInput')) {
-     
-      
-      if(e.target.value === 'dentist'){
-        const elements = document.getElementsByClassName("modal__input-holder--cardiologist");
-      for (const e of elements) {
-        e.style.display = e.style.display = 'none';
-      }
-        document.getElementById("modal__input-holder--dentist").style.display = 'flex';
-        document.getElementById("modal__input-holder--therapist").style.display = 'none';
-       
 
+    document.addEventListener("change", function (e) {
+      if (e.target.classList.contains("modalDoctorInput")) {
+        if (e.target.value === "dentist") {
+          const elements = document.getElementsByClassName(
+            "modal__input-holder"
+          );
+          for (const e of elements) {
+            e.style.display = e.style.display = "none";
+          }
+          document.getElementById(
+            "modal__input-holder--dentist"
+          ).style.display = "flex";
+          document.getElementById(
+            "modal__input-holder--therapist"
+          ).style.display = "none";
+        }
+        if (e.target.value === "cardiologist") {
+          const elements = document.getElementsByClassName(
+            "modal__input-holder--cardiologist"
+          );
+          for (const e of elements) {
+            e.style.display = e.style.display = "flex";
+          }
+          document.getElementById(
+            "modal__input-holder--dentist"
+          ).style.display = "none";
+          document.getElementById(
+            "modal__input-holder--therapist"
+          ).style.display = "none";
+        }
+        if (e.target.value === "therapist") {
+          const elements = document.getElementsByClassName(
+            "modal__input-holder--cardiologist"
+          );
+          for (const e of elements) {
+            e.style.display = e.style.display = "none";
+          }
+          document.getElementById(
+            "modal__input-holder--dentist"
+          ).style.display = "none";
+          document.getElementById(
+            "modal__input-holder--therapist"
+          ).style.display = "flex";
+        }
+      }
+    });
 
-
-        
-        
-      }
-      if(e.target.value === 'cardiologist'){
-        const elements = document.getElementsByClassName("modal__input-holder--cardiologist");
-      for (const e of elements) {
-        e.style.display = e.style.display = 'flex';
-      }
-        document.getElementById("modal__input-holder--dentist").style.display = 'none';
-        document.getElementById("modal__input-holder--therapist").style.display = 'none';
-        
-        
-    }
-      if(e.target.value === 'therapist'){
-        const elements = document.getElementsByClassName("modal__input-holder--cardiologist");
-      for (const e of elements) {
-        e.style.display = e.style.display = 'none' ;
-      }
-        document.getElementById("modal__input-holder--dentist").style.display = 'none';
-        document.getElementById("modal__input-holder--therapist").style.display = 'flex';
-        
-        
-    }
-      }	
-      
-       
-        
-  });
-  
-      
-  
-  const close = document.getElementById(`modal__close`);
+    const close = document.getElementById(`modal__close`);
     close.onclick = () => {
       this.closeModal();
     };
-  const submit = document.getElementById(`modalFormSubmit`);
-  submit.onclick = () => {
-    console.log('FUCK');
+    const submit = document.getElementById(`modalFormSubmit`);
+    submit.onclick = () => {
+      console.log("FUCK");
       const names = document.getElementById("modalNameInput").value;
-        const doctors = document.getElementById("modalDoctorInput").value;
-        const importancys = document.getElementById("modalImportancyInput").value;
-        const visitGoals = document.getElementById("modalGoalInput").value;
-        const descriptions = document.getElementById("modalDescInput").value;
-        const dueDates = document.getElementById("modalDateInput").value;
-      if(document.getElementById("modalDoctorInput").value === 'dentist'){
+      const doctors = document.getElementById("modalDoctorInput").value;
+      const importancys = document.getElementById("modalImportancyInput").value;
+      const visitGoals = document.getElementById("modalGoalInput").value;
+      const descriptions = document.getElementById("modalDescInput").value;
+      const dueDates = document.getElementById("modalDateInput").value;
+      if (document.getElementById("modalDoctorInput").value === "dentist") {
         const lastVisits = document.getElementById("modalVisitInput").value;
-      const Dantist = new VisitDentist (names, importancys, visitGoals, descriptions, dueDates, lastVisits);
-      Dantist.post();
-    }else
-    if(document.getElementById("modalDoctorInput").value === 'cardiologist'){
-      const pressures = document.getElementById("modalPressureInput").value;
-      const massIndexs = document.getElementById("modalMassInput").value;
-      const heartDeseasess = document.getElementById("modalHeartInput").value;
-      const cardioAges = document.getElementById("modalCardioAgeInput").value;
-      const Cardio = new VisitCardiologist (names, importancys, visitGoals, descriptions, dueDates,  pressures, massIndexs,heartDeseasess, cardioAges);
-      Cardio.post();
-    }else
-    if(document.getElementById("modalDoctorInput").value === 'therapist'){
-      const therapistAges = document.getElementById("modalTherapistAgeInput").value;
-      const Therap = new VisitTherapist (names, importancys, visitGoals, descriptions, dueDates, therapistAges);
-      Therap.post();
-    }
+        const Dantist = new VisitDentist(
+          names,
+          importancys,
+          visitGoals,
+          descriptions,
+          dueDates,
+          lastVisits
+        );
+        Dantist.post();
+      } else if (
+        document.getElementById("modalDoctorInput").value === "cardiologist"
+      ) {
+        const pressures = document.getElementById("modalPressureInput").value;
+        const massIndexs = document.getElementById("modalMassInput").value;
+        const heartDeseasess = document.getElementById("modalHeartInput").value;
+        const cardioAges = document.getElementById("modalCardioAgeInput").value;
+        const Cardio = new VisitCardiologist(
+          names,
+          importancys,
+          visitGoals,
+          descriptions,
+          dueDates,
+          pressures,
+          massIndexs,
+          heartDeseasess,
+          cardioAges
+        );
+        Cardio.post();
+      } else if (
+        document.getElementById("modalDoctorInput").value === "therapist"
+      ) {
+        const therapistAges = document.getElementById(
+          "modalTherapistAgeInput"
+        ).value;
+        const Therap = new VisitTherapist(
+          names,
+          importancys,
+          visitGoals,
+          descriptions,
+          dueDates,
+          therapistAges
+        );
+        Therap.post();
+      }
     };
-  
-  return holders;
+
+    return holders;
   }
   createRender1() {
     const holder = new Div("page__modal-holder").create();
@@ -287,7 +316,6 @@ class Modal {
     content.append(form);
     const shortInfo = new Div("modal__short-info").create();
     form.append(shortInfo);
-
 
     const target = new Div("modal__input-holder").create();
     shortInfo.append(target);
@@ -313,45 +341,54 @@ class Modal {
 
     const urgency = new Div("modal__input-holder").create();
     shortInfo.append(urgency);
-    const urgencyText = new P("modal__input-text", "Срочность визита:").create();
+    const urgencyText = new P(
+      "modal__input-text",
+      "Срочность визита:"
+    ).create();
     const urgencySelect = document.createElement("select");
-    urgencySelect.className = 'modal__select';
+    urgencySelect.className = "modal__select";
     const optionDentist = document.createElement("option");
-    optionDentist.textContent = 'Обычная';
-    optionDentist.value = 'normal';
+    optionDentist.textContent = "Обычная";
+    optionDentist.value = "normal";
     const optionCardiolog = document.createElement("option");
-    optionCardiolog.textContent = 'Приоритетная';
-    optionCardiolog.value = 'private';
+    optionCardiolog.textContent = "Приоритетная";
+    optionCardiolog.value = "private";
     const optionTerapevt = document.createElement("option");
-    optionTerapevt.textContent = 'Неотложная';
-    optionTerapevt.value = 'high';
-    urgencySelect.append(optionDentist,optionCardiolog,optionTerapevt);
+    optionTerapevt.textContent = "Неотложная";
+    optionTerapevt.value = "high";
+    urgencySelect.append(optionDentist, optionCardiolog, optionTerapevt);
     urgency.append(urgencyText, urgencySelect);
-    
 
-    document.addEventListener('change', function(e){
-      if(e.target.classList.contains('selector')) {
-        if(e.target.value === 'Dantist'){console.log('Dantist');
-        const fio = new Div("modal__input-holder").create();
-        shortInfo.append(fio);
-        const fioText = new P("modal__input-text", "ФИО:").create();
-        const fioInput = new Input(
-          "fio",
-          "modal__input",
-          true,
-          "modalFioInput"
-        ).create();
-        fio.append(fioText, fioInput);}
-        if(e.target.value === 'Cardiolog'){console.log('Cardiolog');}
-        if(e.target.value === 'Terapevt'){console.log('Terapevt');}
-        }	 
+    document.addEventListener("change", function (e) {
+      if (e.target.classList.contains("selector")) {
+        if (e.target.value === "Dantist") {
+          console.log("Dantist");
+          const fio = new Div("modal__input-holder").create();
+          shortInfo.append(fio);
+          const fioText = new P("modal__input-text", "ФИО:").create();
+          const fioInput = new Input(
+            "fio",
+            "modal__input",
+            true,
+            "modalFioInput"
+          ).create();
+          fio.append(fioText, fioInput);
+        }
+        if (e.target.value === "Cardiolog") {
+          console.log("Cardiolog");
+        }
+        if (e.target.value === "Terapevt") {
+          console.log("Terapevt");
+        }
+      }
     });
-    
-    
 
     const pressure = new Div("modal__input-holder").create();
     shortInfo.append(pressure);
-    const pressureText = new P("modal__input-text", "Обычное давление:").create();
+    const pressureText = new P(
+      "modal__input-text",
+      "Обычное давление:"
+    ).create();
     const pressureInput = new Input(
       "pressure",
       "modal__input",
@@ -362,7 +399,10 @@ class Modal {
 
     const indexMas = new Div("modal__input-holder").create();
     shortInfo.append(indexMas);
-    const indexMasText = new P("modal__input-text", "Индекс массы тела:").create();
+    const indexMasText = new P(
+      "modal__input-text",
+      "Индекс массы тела:"
+    ).create();
     const indexMasInput = new Input(
       "indexMas",
       "modal__input",
@@ -370,11 +410,13 @@ class Modal {
       "modalindexMasInput"
     ).create();
     indexMas.append(indexMasText, indexMasInput);
-    
 
     const diseases = new Div("modal__input-holder").create();
     shortInfo.append(diseases);
-    const diseasesText = new P("modal__input-text", "Перенесенные заболевания:").create();
+    const diseasesText = new P(
+      "modal__input-text",
+      "Перенесенные заболевания:"
+    ).create();
     const diseasesInput = new Input(
       "diseases",
       "modal__input",
@@ -396,7 +438,10 @@ class Modal {
 
     const dateDan = new Div("modal__input-holder").create();
     shortInfo.append(dateDan);
-    const dateDanText = new P("modal__input-text", "Дата последнего визита:").create();
+    const dateDanText = new P(
+      "modal__input-text",
+      "Дата последнего визита:"
+    ).create();
     const dateDanInput = new Input(
       "dateDan",
       "modal__input",
@@ -404,7 +449,6 @@ class Modal {
       "modalDateDanInput"
     ).create();
     dateDan.append(dateDanText, dateDanInput);
-
 
     const buttonSubmit = new Div("modal__button-holder").create();
     form.append(buttonSubmit);
