@@ -56,8 +56,8 @@ cards.addEventListener("click", (e) => {
     document.querySelectorAll(".options__icon").forEach((element) => {
       element.style.display = "none";
     });
-    document.getElementById("filterSwitch").style.display="none";
-    document.querySelector(".main__filters-holder").style.display="none";
+    document.getElementById("filterSwitch").style.display = "none";
+    document.querySelector(".main__filters-holder").style.display = "none";
   }
 });
 
@@ -74,12 +74,11 @@ if (TOKEN === null) {
   login.style.display = "none";
   const create = document.getElementById("createButton");
   create.style.display = "block";
-
+  const renderAll = new AllVisits();
+  renderAll.render();
   create.addEventListener("click", (e) => {
     e.preventDefault();
     const modal = new Modal();
     modal.createModal();
   });
-  const renderAll = new AllVisits();
-  renderAll.render();
 }
