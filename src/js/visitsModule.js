@@ -56,7 +56,7 @@ class VisitDentist extends Visit {
     });
     const card = this.render(response.data.id);
     const root = document.getElementById("cardRoot");
-    root.append(card);
+    root.prepend(card);
   }
 
   render(id) {
@@ -106,9 +106,10 @@ class VisitDentist extends Visit {
                 </div>
                 <div class="card__element">
                   <p class="card__problems-text card__text">Last visit:</p>
-                  <p class="card__lastvisit-value card__value">${
-                    this.lastVisit
-                  }</p>
+                  <p class="card__lastvisit-value card__value"> ${this.lastVisit
+                    .split("-")
+                    .reverse()
+                    .join("-")}</p>
                 </div>
               </div>
             </div>
@@ -183,9 +184,37 @@ class VisitCardiologist extends Visit {
     });
     const root = document.getElementById("cardRoot");
     const card = this.render(response.data.id);
-    root.append(card);
+    root.prepend(card);
   }
-
+  async patch(id) {
+    let response = await axios({
+      url: `https://ajax.test-danit.com/api/v2/cards/${id}`,
+      method: "put",
+      data: {
+        name: this.name,
+        description: this.description,
+        doctor: this.doctor,
+        importancy: this.importancy,
+        goal: this.goal,
+        date: this.date,
+        pressure:this.pressure,
+        heartDeseases:this.heartDeseases,
+        massIndex:this.massIndex,
+        age: this.age,
+      },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${TOKEN}`,
+      },
+    });
+    if (response.status === 200) {
+      const root = document.getElementById(`visit${id}`);
+      const card = this.render(id);
+      console.log(this.render(id));
+      root.innerHTML = card.innerHTML;
+      console.log(root);
+    }
+  }
   render(id) {
     const text = document.getElementById("noCardsAdded");
     text.style.display = "none";
@@ -268,7 +297,6 @@ class VisitCardiologist extends Visit {
 `;
     return card;
   }
-  edit() {}
 }
 class VisitTherapist extends Visit {
   constructor(name, importancy, goal, description, date, age) {
@@ -295,7 +323,7 @@ class VisitTherapist extends Visit {
     });
     const card = this.render(response.data.id);
     const root = document.getElementById("cardRoot");
-    root.append(card);
+    root.prepend(card);
   }
   async patch(id) {
     let response = await axios({
