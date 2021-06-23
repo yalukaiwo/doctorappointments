@@ -106,9 +106,10 @@ class VisitDentist extends Visit {
                 </div>
                 <div class="card__element">
                   <p class="card__problems-text card__text">Last visit:</p>
-                  <p class="card__lastvisit-value card__value">${
-                    this.lastVisit
-                  }</p>
+                  <p class="card__lastvisit-value card__value"> ${this.lastVisit
+                    .split("-")
+                    .reverse()
+                    .join("-")}</p>
                 </div>
               </div>
             </div>
