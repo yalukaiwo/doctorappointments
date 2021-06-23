@@ -64,7 +64,7 @@ class Input {
   }
 }
 
-class Button {
+class ButtonToken {
   constructor(classList, text, id, callback) {
     this.classList = classList;
     this.text = text;
@@ -76,9 +76,16 @@ class Button {
     button.classList = this.classList;
     button.id = this.id;
     button.innerHTML = this.text;
-    button.onclick = (e) => {
+    button.onclick = async (e) => {
       e.preventDefault();
-      this.callback();
+      const token = await this.callback();
+      if (token) {
+        TOKEN = token.data;
+        const modal = new Modal();
+        modal.closeModal();
+        const renderAll = new AllVisits();
+        renderAll.render();
+      }
     };
     return button;
   }
