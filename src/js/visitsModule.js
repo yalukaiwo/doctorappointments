@@ -137,9 +137,7 @@ class VisitDentist extends Visit {
     if (response.status === 200) {
       const root = document.getElementById(`visit${id}`);
       const card = this.render(id);
-      console.log(this.render(id));
       root.innerHTML = card.innerHTML;
-      console.log(root);
     }
   }
 }
@@ -197,9 +195,9 @@ class VisitCardiologist extends Visit {
         importancy: this.importancy,
         goal: this.goal,
         date: this.date,
-        pressure:this.pressure,
-        heartDeseases:this.heartDeseases,
-        massIndex:this.massIndex,
+        pressure: this.pressure,
+        heartDeseases: this.heartDeseases,
+        massIndex: this.massIndex,
         age: this.age,
       },
       headers: {
@@ -210,9 +208,7 @@ class VisitCardiologist extends Visit {
     if (response.status === 200) {
       const root = document.getElementById(`visit${id}`);
       const card = this.render(id);
-      console.log(this.render(id));
       root.innerHTML = card.innerHTML;
-      console.log(root);
     }
   }
   render(id) {
