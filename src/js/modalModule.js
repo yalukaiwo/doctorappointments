@@ -54,7 +54,7 @@ class Modal {
     document.body.style.overflow = "hidden";
   }
   createRender() {
-    const holders= new Div("page__modal-holder").create();
+    const holders = new Div("page__modal-holder").create();
     holders.id = "modalRoot";
     holders.innerHTML = `
     <div class="page__modal-window modal">
@@ -256,8 +256,8 @@ class Modal {
       this.closeModal();
     }
     };
-  
-  return holders;
+
+    return holders;
   }
   createModal() {
     const modal = this.createRender();
