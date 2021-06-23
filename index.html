@@ -1,85 +1,84 @@
 <!DOCTYPE html>
 <html lang="en" class="page">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./dist/css/style.min.css" />
-    <title>Doctorappointments</title>
-  </head>
-  <body>
-    <!-- HEADER -->
 
-    <header class="page__header header">
-      <div class="header__content-wrapper">
-        <div class="header__logo-wrapper">
-          <img src="./dist/img/logo.png" alt="logotype" class="header__logo" />
-        </div>
-        <div class="header__buttons">
-          <button
-            class="header__button header__button--active login"
-            id="loginButton"
-          >
-            Login
-          </button>
-          <button class="header__button create" id="createButton">
-            Create Visit
-          </button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./dist/css/style.min.css" />
+  <title>Doctorappointments</title>
+</head>
+
+<body>
+  <!-- HEADER -->
+
+  <header class="page__header header">
+    <div class="header__content-wrapper">
+      <div class="header__logo-wrapper">
+        <img src="./dist/img/logo.png" alt="logotype" class="header__logo" />
       </div>
-    </header>
-
-    <!-- MAIN -->
-
-    <main class="page__main main">
-      <div class="main__header">
-        <!-- MAIN HEADER -->
-
-        <div class="main__titles-wrapper">
-          <h3 class="main__title">Your visits</h3>
-          <h4 class="main__filter-switch" id="filterSwitch">Filter</h4>
-        </div>
-
-        <!-- FILTERS MENU -->
-
-        <div class="main__filters-holder">
-          <form class="main__filters filter" id="filtersForm">
-            <div class="filter__input-holder">
-              <p class="filter__input-word">Name:</p>
-              <input type="text" id="nameFilterInput" class="filter__input" />
-            </div>
-
-            <div class="filter__input-holder">
-              <p class="filter__input-word">Status:</p>
-              <select id="statusFilterSelect" class="filter__select">
-                <option value="" selected class="filter__option">
-                  Not Provided
-                </option>
-                <option value="open" class="filter__option">Open</option>
-                <option value="done" class="filter__option">Done</option>
-              </select>
-            </div>
-
-            <div class="filter__input-holder">
-              <p class="filter__input-word">Importance:</p>
-              <select id="importanceFilterSelect" class="filter__select">
-                <option value="" selected class="filter__option">
-                  Not Provided
-                </option>
-                <option value="high" class="filter__option">High</option>
-                <option value="medium" class="filter__option">Medium</option>
-                <option value="low" class="filter__option">Low</option>
-              </select>
-            </div>
-          </form>
-        </div>
+      <div class="header__buttons">
+        <button class="header__button header__button--active login" id="loginButton">
+          Login
+        </button>
+        <button class="header__button create" id="createButton">
+          Create Visit
+        </button>
       </div>
-      <div class="main__main">
-        <div class="main__cards-wrapper cards" id="cardRoot">
-          <h3 class="cards__nocards" id="noCardsAdded">No cards have been added yet</h3>
-          <h3 class="cards__nocards" id="nothingFoundCards" style="display: none;">No cards found</h3>
-          <!-- EDIT FORM CARDIOLOGIST -->
-          <!-- <div class="cards__card card card--open card" id="visit5">
+    </div>
+  </header>
+
+  <!-- MAIN -->
+
+  <main class="page__main main">
+    <div class="main__header">
+      <!-- MAIN HEADER -->
+
+      <div class="main__titles-wrapper">
+        <h3 class="main__title">Your visits</h3>
+        <h4 class="main__filter-switch" id="filterSwitch">Filter</h4>
+      </div>
+
+      <!-- FILTERS MENU -->
+
+      <div class="main__filters-holder">
+        <form class="main__filters filter" id="filtersForm">
+          <div class="filter__input-holder">
+            <p class="filter__input-word">Name:</p>
+            <input type="text" id="nameFilterInput" class="filter__input" />
+          </div>
+
+          <div class="filter__input-holder">
+            <p class="filter__input-word">Status:</p>
+            <select id="statusFilterSelect" class="filter__select">
+              <option value="" selected class="filter__option">
+                Not Provided
+              </option>
+              <option value="open" class="filter__option">Open</option>
+              <option value="done" class="filter__option">Done</option>
+            </select>
+          </div>
+
+          <div class="filter__input-holder">
+            <p class="filter__input-word">Importance:</p>
+            <select id="importanceFilterSelect" class="filter__select">
+              <option value="" selected class="filter__option">
+                Not Provided
+              </option>
+              <option value="high" class="filter__option">High</option>
+              <option value="medium" class="filter__option">Medium</option>
+              <option value="low" class="filter__option">Low</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="main__main">
+      <div class="main__cards-wrapper cards" id="cardRoot">
+        <h3 class="cards__nocards" id="noCardsAdded">No cards have been added yet</h3>
+        <h3 class="cards__nocards" id="nothingFoundCards" style="display: none;">No cards found</h3>
+        <!-- EDIT FORM CARDIOLOGIST -->
+        <!-- <div class="cards__card card card--open card" id="visit5">
             <div class="card__info-wrapper">
               <form class="card__short-info">
                 <input
@@ -167,8 +166,8 @@
               </div>
             </div>
           </div> -->
-          
-  <!-- <div class="cards__card card card--open" id="visit6">
+
+        <!-- <div class="cards__card card card--open" id="visit6">
             <div class="card__info-wrapper">
               <form class="card__short-info">
                 <input
@@ -229,9 +228,9 @@
               </div>
             </div>
           </div>  -->
-          
-          <!-- EDIT FORM THERAPIST -->
-          <!-- <div class="cards__card card card--open" id="visit7">
+
+        <!-- EDIT FORM THERAPIST -->
+        <!-- <div class="cards__card card card--open" id="visit7">
             <div class="card__info-wrapper">
               <form class="card__short-info">
                 <input
@@ -303,7 +302,7 @@
           </div>
         </div>
       </div> -->
-      <!-- <div class="cards__card card card--open" id="visit19312">
+        <!-- <div class="cards__card card card--open" id="visit19312">
         <div class="card__info-wrapper">
           <div class="card__short-info">
             <h3 class="card__name">name</h3>
@@ -347,8 +346,8 @@
           </div>
         </div>
         <p class="card__showmore" id="showmore19312">Show less</p></div> -->
-    </main>
-    <!-- <div class="page__modal-holder" id="modalRoot">
+  </main>
+  <!-- <div class="page__modal-holder" id="modalRoot">
       <div class="page__modal-window modal">
         <div class="modal__header">
           <h3 class="modal__title">Create new visit</h3>
@@ -483,8 +482,9 @@
         </div>
       </div>
     </div> -->
-    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./dist/js/script.min.js"></script>
-  </body>
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./dist/js/script.min.js"></script>
+</body>
+
 </html>

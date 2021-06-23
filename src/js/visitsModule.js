@@ -412,7 +412,7 @@ class AllVisits {
         );
         root.append(visit.render(element.id));
       } else if (element.doctor === "Cardiologist") {
-        const visit = new VisitCariologist(
+        const visit = new VisitCardiologist(
           element.name.toString(),
           element.importancy.toString(),
           element.goal.toString(),

@@ -92,3 +92,33 @@ class ButtonToken {
     return button;
   }
 }
+
+class ButtonVisit {
+  constructor(classList, text, id, callback) {
+    this.classList = classList;
+    this.text = text;
+    this.id = id;
+    this.callback = callback;
+  }
+  create() {
+    const button = document.createElement("button");
+    button.classList = this.classList;
+    button.id = this.id;
+    button.innerHTML = this.text;
+    button.onclick = async (e) => {
+      e.preventDefault();
+      const token = await this.callback();
+      if (token) {
+        TOKEN = token.data;
+        const modal = new Modal();
+        modal.closeModal();
+        const renderAll = new AllVisits();
+        renderAll.render();
+        document.getElementById("loginButton").style.display = "none";
+        document.getElementById("createButton").style.display = "block";
+        localStorage.setItem("token", token.data);
+      }
+    };
+    return button;
+  }
+}

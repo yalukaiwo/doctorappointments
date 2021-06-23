@@ -51,6 +51,16 @@ if (TOKEN === null) {
   login.style.display = "none";
   const create = document.getElementById("createButton");
   create.style.display = "block";
+ 
+  create.addEventListener("click", (e) => {
+    e.preventDefault();
+    const modal = new Modal();
+    modal.createModal();
+    
+  });
   const renderAll = new AllVisits();
   renderAll.render();
 }
+
+
+
