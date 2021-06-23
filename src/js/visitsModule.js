@@ -56,7 +56,7 @@ class VisitDentist extends Visit {
     });
     const card = this.render(response.data.id);
     const root = document.getElementById("cardRoot");
-    root.append(card);
+    root.prepend(card);
   }
 
   render(id) {
@@ -184,7 +184,7 @@ class VisitCardiologist extends Visit {
     });
     const root = document.getElementById("cardRoot");
     const card = this.render(response.data.id);
-    root.append(card);
+    root.prepend(card);
   }
   async patch(id) {
     let response = await axios({
@@ -323,7 +323,7 @@ class VisitTherapist extends Visit {
     });
     const card = this.render(response.data.id);
     const root = document.getElementById("cardRoot");
-    root.append(card);
+    root.prepend(card);
   }
   async patch(id) {
     let response = await axios({
