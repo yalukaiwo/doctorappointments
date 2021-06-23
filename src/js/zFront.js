@@ -21,7 +21,46 @@ cards.addEventListener("click", (e) => {
   if (e.target.id.includes("delete")) {
     el = e.target;
     const id = el.id.split("delete")[1];
-    const visit = new Visit("1", "1", "1", "1", "1", "1");
+    const visit = new VisitDelete();
     visit.delete(id);
   }
+  if (
+    e.target.id.includes("edit") &&
+    e.target.classList.contains("options__icon")
+  ) {
+    if (
+      e.target.closest(".card").children[0].children[0].children[1]
+        .textContent === "Therapist"
+    ) {
+      const edit = new EditTherapist(e.target.id.split("edit")[1]);
+      edit.render();
+    }
+  }
 });
+
+if (TOKEN === null) {
+  const login = document.getElementById("loginButton");
+
+  login.addEventListener("click", (e) => {
+    e.preventDefault();
+    const modal = new Modal();
+    modal.loginModal();
+  });
+} else {
+  const login = document.getElementById("loginButton");
+  login.style.display = "none";
+  const create = document.getElementById("createButton");
+  create.style.display = "block";
+ 
+  create.addEventListener("click", (e) => {
+    e.preventDefault();
+    const modal = new Modal();
+    modal.createModal();
+    
+  });
+  const renderAll = new AllVisits();
+  renderAll.render();
+}
+
+
+
