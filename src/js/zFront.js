@@ -76,9 +76,12 @@ if (TOKEN === null) {
   create.style.display = "block";
   const renderAll = new AllVisits();
   renderAll.render();
-  create.addEventListener("click", (e) => {
-    e.preventDefault();
-    const modal = new Modal();
-    modal.createModal();
-  });
 }
+
+const create = document.getElementById("createButton");
+
+create.addEventListener("click", (e) => {
+  e.preventDefault();
+  const modal = new Modal();
+  modal.createModal();
+});
